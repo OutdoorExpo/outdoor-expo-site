@@ -3,14 +3,10 @@ import Image from "next/image";
 /**
  * Outdoor Expo logo — uses real PNG files in /public/
  *
- * Fixed display height with auto width to preserve 5.6:1 aspect ratio
- * regardless of container width. The `style` prop guarantees the constraint
- * even when Tailwind classes don't apply (e.g. our custom 8pt spacing scale
- * doesn't include h-9, h-11, etc.).
- *
- * Variants:
- * - default: full colour horizontal logo (white/light backgrounds)
- * - white: all-white horizontal logo (dark backgrounds — footer, mobile menu)
+ * Responsive height via clamp(): smaller on mobile so header fits
+ * within the 375px viewport alongside GET TICKETS + hamburger menu.
+ * - Mobile (<= 600px): ~32px height
+ * - Desktop: ~40px height
  */
 export function Logo({
   variant = "default",
@@ -29,7 +25,7 @@ export function Logo({
       width={224}
       height={40}
       priority
-      style={{ height: "40px", width: "auto" }}
+      style={{ height: "clamp(28px, 5vw, 40px)", width: "auto" }}
       className={className}
     />
   );
