@@ -41,14 +41,16 @@ export function ReturningExhibitors() {
           {LOGOS.map((logo) => (
             <div
               key={logo.file}
-              className="bg-sand aspect-[3/2] flex items-center justify-center rounded p-3 md:p-4 hover:bg-green-50 transition-colors"
+              className="bg-sand aspect-[4/3] flex items-center justify-center rounded p-2 hover:bg-green-50 transition-colors"
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={`/home/logos/${logo.file}`}
                 alt={`${logo.name} logo`}
                 loading="lazy"
-                className="max-w-full max-h-full object-contain"
+                width="240"
+                height="180"
+                className="w-full h-full object-contain"
               />
             </div>
           ))}
