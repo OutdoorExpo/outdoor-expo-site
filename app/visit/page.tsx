@@ -113,22 +113,17 @@ const TRANSPORT = [
   {
     icon: "🚗",
     title: "By car",
-    body: "15 minutes from Cathedral Square. Exit State Highway 1 at Curletts Road. Free on-site parking with 3,000+ spaces — follow event signage.",
+    body: "15 minutes from Cathedral Square. Exit State Highway 1 near Curletts Road. Please note: General public parking entry is via Hayton Road or Augustine Drive. (Curletts Road entry is strictly reserved for Mobility Pass holders). Free on-site parking with 3,000+ spaces — follow event signage.",
   },
   {
     icon: "🚌",
     title: "By bus",
-    body: "Metro Bus routes Yellow Line and 28 stop within walking distance. Plan your trip at metroinfo.co.nz.",
+    body: "Take Metro Bus Route 7 to Halswell Road, which stops within walking distance of the venue. Plan your trip and check timetables at metroinfo.co.nz.",
   },
   {
     icon: "🚴",
     title: "By bike",
-    body: "Secure bike racks at the main entrance. Cycleway access from Hagley Park via Riccarton Avenue.",
-  },
-  {
-    icon: "♿",
-    title: "Drop-off zone",
-    body: "Accessible drop-off at the main entrance — flag staff in hi-vis on arrival.",
+    body: "Secure bike racks are available at the main entrance. Enjoy easy and safe access from Hagley Park via the Little River Link cycleway.",
   },
 ];
 
