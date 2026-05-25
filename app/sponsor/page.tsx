@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Eyebrow } from "@/components/Eyebrow";
 import { Button } from "@/components/Button";
 import { Newsletter } from "@/components/home/Newsletter";
+import { HubSpotForm } from "@/components/HubSpotForm";
 
 export const metadata = {
   title: "Sponsor",
@@ -34,6 +35,7 @@ export default function SponsorPage() {
       <Zones />
       <Tiers />
       <Process />
+      <ApplicationForm />
       <CtaStrip />
       <Newsletter />
     </>
@@ -90,7 +92,7 @@ function Hero() {
             >
               Download Sponsor Prospectus
             </Button>
-            <Button href="#contact" variant="outline-white" size="lg">
+            <Button href="#apply" variant="outline-white" size="lg">
               Talk to Us
             </Button>
           </div>
@@ -554,7 +556,47 @@ function Process() {
   );
 }
 
-/* ============== 9 · CTA STRIP (CONTACT) ============== */
+/* ============== 9 · APPLICATION FORM ============== */
+function ApplicationForm() {
+  return (
+    <section id="apply" className="bg-paper section-content scroll-mt-20">
+      <div className="container-site">
+        <div className="container-prose mx-auto mb-7">
+          <Eyebrow>Become a sponsor</Eyebrow>
+          <h2 className="text-h1 font-extrabold text-charcoal mb-3 mt-2">
+            Talk to us about partnership.
+          </h2>
+          <p className="text-body-l text-dark-grey mb-2">
+            Fill out the form and our team will be in touch as soon as
+            possible. We&apos;ll confirm availability, walk you through the
+            tiers, and tailor a package that fits your goals.
+          </p>
+          <p className="text-body text-dark-grey">
+            Before applying, we recommend reviewing the{" "}
+            <a
+              href={SPONSOR_PROSPECTUS_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-orange-500 underline hover:text-orange-700"
+            >
+              2026 Sponsor Prospectus
+            </a>{" "}
+            for tier details and pricing.
+          </p>
+        </div>
+        <div className="max-w-prose mx-auto">
+          <HubSpotForm
+            portalId="44544113"
+            formId="58110572-7435-4206-aec2-8c89f7b8a61d"
+            region="ap1"
+          />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ============== 10 · CTA STRIP (CONTACT) ============== */
 function CtaStrip() {
   return (
     <section
