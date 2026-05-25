@@ -1,15 +1,13 @@
+import { readFileSync } from "fs";
+import path from "path";
 import { Button } from "../Button";
 import { Eyebrow } from "../Eyebrow";
 
 // Order: 1, 3, 10 first (highest priority), then the rest in random order.
-// To re-order later, swap entries. To swap a logo, replace `file` only —
-// `name` is used for alt text.
 const LOGOS = [
-  // Priority lead-ins
   { file: "pulsar.svg", name: "Pulsar" },
   { file: "black-sheep-trading.svg", name: "Black Sheep Trading" },
   { file: "cmg-campers.svg", name: "CMG Campers" },
-  // Remaining in randomised order
   { file: "action-power-water-sports.svg", name: "Action Power & Water Sports" },
   { file: "mountain-high.svg", name: "Mountain High Clothing" },
   { file: "pure-salt.svg", name: "Pure Salt" },
@@ -21,7 +19,34 @@ const LOGOS = [
   { file: "sports-marine.svg", name: "Sports Marine" },
 ];
 
+/**
+ * Read an SVG file at build time and normalise it so CSS can control the
+ * size. Inline SVG is the only reliable way to avoid the Safari-iOS bug
+ * where <img src="*.svg"> gets rasterised once at low resolution and
+ * looks blurry on retina screens.
+ */
+function loadSvg(file: string): string {
+  const fullPath = path.join(process.cwd(), "public", "home", "logos", file);
+  let svg = readFileSync(fullPath, "utf-8");
+
+  // Strip fixed width/height attributes from the root <svg> so CSS wins.
+  svg = svg.replace(
+    /<svg\b([^>]*)>/i,
+    (_match, attrs: string) => {
+      const cleaned = attrs
+        .replace(/\s+width="[^"]*"/i, "")
+        .replace(/\s+height="[^"]*"/i, "")
+        .replace(/\s+preserveAspectRatio="[^"]*"/i, "");
+      return `<svg${cleaned} width="100%" height="100%" preserveAspectRatio="xMidYMid meet">`;
+    }
+  );
+
+  return svg;
+}
+
 export function ReturningExhibitors() {
+  const logos = LOGOS.map((l) => ({ ...l, svg: loadSvg(l.file) }));
+
   return (
     <section className="bg-white section-content">
       <div className="container-site">
@@ -38,21 +63,16 @@ export function ReturningExhibitors() {
           </p>
         </div>
         <div className="grid grid-cols-3 md:grid-cols-6 gap-2 md:gap-3 mb-7">
-          {LOGOS.map((logo) => (
+          {logos.map((logo) => (
             <div
               key={logo.file}
               className="bg-sand aspect-[4/3] flex items-center justify-center rounded p-2 hover:bg-green-50 transition-colors"
             >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={`/home/logos/${logo.file}`}
-                alt={`${logo.name} logo`}
-                loading="lazy"
-                decoding="async"
-                width="700"
-                height="450"
-                className="w-full h-full object-contain"
-                style={{ imageRendering: "auto" }}
+              <div
+                role="img"
+                aria-label={`${logo.name} logo`}
+                className="w-full h-full flex items-center justify-center [&>svg]:w-full [&>svg]:h-full [&>svg]:max-w-full [&>svg]:max-h-full"
+                dangerouslySetInnerHTML={{ __html: logo.svg }}
               />
             </div>
           ))}
