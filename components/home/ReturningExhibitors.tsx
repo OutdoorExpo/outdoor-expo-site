@@ -1,11 +1,24 @@
 import { Button } from "../Button";
 import { Eyebrow } from "../Eyebrow";
 
-// Placeholder list — replace with Sanity CMS data once schema is connected
-const placeholderLogos = [
-  "Kathmandu", "Fishing & Outdoor", "Hunting & Fishing NZ", "Burnsco",
-  "Macpac", "Torpedo7", "Bivouac Outdoor", "Honda Marine",
-  "Suzuki Marine", "Coleman", "Stoney Creek", "Swazi",
+// Order: 1, 3, 10 first (highest priority), then the rest in random order.
+// To re-order later, swap entries. To swap a logo, replace `file` only —
+// `name` is used for alt text.
+const LOGOS = [
+  // Priority lead-ins
+  { file: "pulsar.svg", name: "Pulsar" },
+  { file: "black-sheep-trading.svg", name: "Black Sheep Trading" },
+  { file: "cmg-campers.svg", name: "CMG Campers" },
+  // Remaining in randomised order
+  { file: "action-power-water-sports.svg", name: "Action Power & Water Sports" },
+  { file: "mountain-high.svg", name: "Mountain High Clothing" },
+  { file: "pure-salt.svg", name: "Pure Salt" },
+  { file: "canterbury-vehicle-accessories.svg", name: "Canterbury Vehicle Accessories" },
+  { file: "bays-boating.svg", name: "Bays Boating" },
+  { file: "bush-bath.svg", name: "Bush Bath" },
+  { file: "white-pointer-boats.svg", name: "White Pointer Boats" },
+  { file: "kaweka.svg", name: "Kaweka Outdoor Equipment" },
+  { file: "sports-marine.svg", name: "Sports Marine" },
 ];
 
 export function ReturningExhibitors() {
@@ -25,17 +38,23 @@ export function ReturningExhibitors() {
           </p>
         </div>
         <div className="grid grid-cols-3 md:grid-cols-6 gap-2 md:gap-3 mb-7">
-          {placeholderLogos.map((name) => (
+          {LOGOS.map((logo) => (
             <div
-              key={name}
-              className="bg-sand aspect-[3/2] flex items-center justify-center rounded font-heading font-bold text-body-s text-mid-grey text-center p-2 hover:bg-green-50 hover:text-green-500 transition-colors"
+              key={logo.file}
+              className="bg-sand aspect-[3/2] flex items-center justify-center rounded p-3 md:p-4 hover:bg-green-50 transition-colors"
             >
-              {name}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={`/home/logos/${logo.file}`}
+                alt={`${logo.name} logo`}
+                loading="lazy"
+                className="max-w-full max-h-full object-contain"
+              />
             </div>
           ))}
         </div>
         <div className="flex flex-col md:flex-row gap-2 justify-center items-center">
-          <Button href="/exhibitors/2025" variant="primary">
+          <Button href="/exhibitors" variant="primary">
             View All 2025 Exhibitors
           </Button>
           <Button href="/exhibit-with-us" variant="outline-orange">
