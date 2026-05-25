@@ -113,14 +113,17 @@ export function Footer() {
             </div>
           ))}
         </div>
-        <div className="border-t border-white/10 pt-3 flex flex-col md:flex-row justify-between items-start md:items-center text-eyebrow opacity-60 gap-2">
-          <div>© {new Date().getFullYear()} Outdoor Expo. All rights reserved.</div>
-          <div className="flex gap-3">
+        <div className="border-t border-white/10 pt-3 flex flex-col md:flex-row justify-between items-start md:items-center text-eyebrow gap-2">
+          <div className="opacity-60">© {new Date().getFullYear()} Outdoor Expo. All rights reserved.</div>
+          <div className="flex flex-wrap gap-3">
             <Link href="/privacy" className="opacity-60 hover:opacity-100">
               Privacy Policy
             </Link>
             <Link href="/terms" className="opacity-60 hover:opacity-100">
-              Terms
+              Terms &amp; Conditions
+            </Link>
+            <Link href="/exhibitor-terms" className="opacity-60 hover:opacity-100">
+              Exhibitor Terms &amp; Conditions
             </Link>
           </div>
         </div>
