@@ -180,30 +180,50 @@ function GettingHere() {
   );
 }
 
+/**
+ * Embedded Google Map of the venue + Get Directions CTA.
+ *
+ * Uses Google Maps' keyless query embed (works without an API key) — the
+ * iframe shows an interactive map centred on the venue. The orange overlay
+ * button opens the Maps directions URL in a new tab so visitors can launch
+ * navigation in their own Maps app.
+ */
+const VENUE_ADDRESS =
+  "Canterbury Park A&P Showgrounds, Curletts Road, Wigram, Christchurch 8042, New Zealand";
+
+const GOOGLE_MAPS_EMBED_URL =
+  "https://maps.google.com/maps?q=" +
+  encodeURIComponent(VENUE_ADDRESS) +
+  "&output=embed";
+
+const GOOGLE_MAPS_DIRECTIONS_URL =
+  "https://www.google.com/maps/dir/?api=1&destination=" +
+  encodeURIComponent(VENUE_ADDRESS);
+
 function MapPlaceholder() {
   return (
     <div
       className="bg-white rounded border border-light-grey relative overflow-hidden"
       style={{ minHeight: 380 }}
     >
-      <div className="absolute inset-0 flex flex-col items-center justify-center bg-green-50">
-        <div
-          className="bg-orange-500 mb-3"
-          style={{
-            width: 48,
-            height: 48,
-            borderRadius: "50% 50% 50% 0",
-            transform: "rotate(-45deg)",
-            boxShadow: "0 4px 12px rgba(0,0,0,0.2)",
-          }}
-        />
-        <div className="bg-charcoal text-white px-3 py-1 text-eyebrow uppercase tracking-[0.08em] font-semibold rounded-sm">
-          Canterbury Agricultural Park
-        </div>
-      </div>
-      <div className="absolute bottom-2 right-2 text-[10px] text-mid-grey bg-white/90 px-2 py-1 rounded-sm">
-        TODO: Replace with Google Maps embed
-      </div>
+      <iframe
+        src={GOOGLE_MAPS_EMBED_URL}
+        title="Canterbury Park A&P Showgrounds map"
+        loading="lazy"
+        referrerPolicy="no-referrer-when-downgrade"
+        allowFullScreen
+        className="block w-full h-full"
+        style={{ minHeight: 380, border: 0 }}
+      />
+      <a
+        href={GOOGLE_MAPS_DIRECTIONS_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="absolute bottom-3 right-3 inline-flex items-center gap-1 bg-orange-500 hover:bg-orange-400 text-white px-3 py-2 text-label font-semibold uppercase tracking-[0.08em] rounded-sm no-underline transition-colors"
+        style={{ boxShadow: "0 4px 12px rgba(0,0,0,0.18)" }}
+      >
+        Get Directions →
+      </a>
     </div>
   );
 }
