@@ -4,16 +4,28 @@ import { FLICKET_TICKETS_URL } from "@/lib/constants";
 
 export function Hero() {
   return (
-    <section
-      className="relative flex items-center min-h-hero-mobile md:min-h-hero-desktop text-white py-10 md:py-12"
-      style={{
-        backgroundImage:
-          "linear-gradient(rgba(15,14,12,0.45), rgba(15,14,12,0.25)), url('https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=1920&q=80')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-    >
-      <div className="container-site">
+    <section className="relative flex items-center min-h-hero-mobile md:min-h-hero-desktop text-white py-10 md:py-12 overflow-hidden">
+      <video
+        className="absolute inset-0 w-full h-full object-cover z-0 motion-reduce:hidden"
+        autoPlay
+        muted
+        loop
+        playsInline
+        poster="/hero-poster.jpg"
+        preload="metadata"
+      >
+        <source src="/hero-video.mp4" type="video/mp4" />
+      </video>
+
+      <div
+        className="absolute inset-0 z-0 bg-cover bg-center motion-safe:hidden"
+        style={{ backgroundImage: "url('/hero-poster.jpg')" }}
+        aria-hidden="true"
+      />
+
+      <div className="absolute inset-0 bg-black/40 z-10" aria-hidden="true" />
+
+      <div className="container-site relative z-20">
         <div className="container-prose">
           <Eyebrow variant="orange">Christchurch · 2–4 October 2026</Eyebrow>
           <h1 className="text-display font-extrabold text-white mb-3 mt-2">
