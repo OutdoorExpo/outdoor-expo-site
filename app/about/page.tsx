@@ -27,12 +27,13 @@ export default function AboutPage() {
 function Hero() {
   return (
     <section
-      className="relative flex items-end text-white py-12 md:py-15 overflow-hidden"
+      className="relative flex items-end text-white py-12 md:py-15 overflow-hidden min-h-[420px] md:min-h-[480px] lg:min-h-[560px]"
       style={{
-        // Match the wide cinematic aspect ratio of the source (16:7) on desktop,
-        // with a sensible mobile minimum so the text still has room.
-        aspectRatio: "16 / 7",
-        minHeight: "360px",
+        // Use a simple responsive min-height — NO aspect-ratio.
+        // aspect-ratio + min-height together caused the section to compute
+        // width = min-height * ratio (e.g. 360 * 16/7 ≈ 822px) on mobile,
+        // breaking text wrapping. background-size: cover handles cropping;
+        // background-position: center top keeps more sky in view.
         backgroundImage:
           "linear-gradient(rgba(15,14,12,0.35) 0%, rgba(15,14,12,0.65) 100%), url('/about/hero.jpg')",
         backgroundSize: "cover",
