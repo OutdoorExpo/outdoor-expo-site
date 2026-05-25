@@ -62,7 +62,7 @@ export function ReturningExhibitors() {
             preview of brands returning from 2025.
           </p>
         </div>
-        <div className="grid grid-cols-3 md:grid-cols-6 gap-2 md:gap-3 mb-7">
+        <div className="grid grid-cols-2 md:grid-cols-6 gap-2 md:gap-3 mb-7">
           {logos.map((logo) => (
             <div
               key={logo.file}
