@@ -39,7 +39,7 @@ function VisitHero() {
       style={{
         minHeight: "56vh",
         backgroundImage:
-          "linear-gradient(rgba(15,14,12,0.55), rgba(15,14,12,0.35)), url('https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=1920&q=80')",
+          "linear-gradient(rgba(15,14,12,0.55), rgba(15,14,12,0.35)), url('/visit/hero.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
@@ -194,7 +194,7 @@ const VENUE_ADDRESS =
 const GOOGLE_MAPS_EMBED_URL =
   "https://maps.google.com/maps?q=" +
   encodeURIComponent(VENUE_ADDRESS) +
-  "&output=embed";
+  "&hl=en&output=embed";
 
 const GOOGLE_MAPS_DIRECTIONS_URL =
   "https://www.google.com/maps/dir/?api=1&destination=" +
@@ -252,7 +252,7 @@ function WhatsOn() {
       className="relative text-white section-content overflow-hidden scroll-mt-20"
       style={{
         backgroundImage:
-          "linear-gradient(rgba(15,14,12,0.75), rgba(15,14,12,0.75)), url('https://images.unsplash.com/photo-1533873984035-25970ab07461?w=1920&q=80')",
+          "linear-gradient(rgba(15,14,12,0.75), rgba(15,14,12,0.75)), url('/visit/whats-on.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
@@ -280,7 +280,10 @@ function WhatsOn() {
               </span>
             ))}
           </div>
-          <Button href="/zones" variant="outline-white">
+          <Button
+            href="https://drive.google.com/file/d/1npR9zs8aHHDqrEyQ_IHNdsArKFkS018L/view?usp=sharing"
+            variant="outline-white"
+          >
             View All Zones
           </Button>
         </div>
@@ -300,16 +303,8 @@ const ACCESS = [
     body: "Dedicated accessible parking near the main entrance — display your mobility card on arrival.",
   },
   {
-    title: "Hearing loop",
-    body: "Hearing loops installed in the Demonstration Tent and main stage areas.",
-  },
-  {
-    title: "Quiet space",
-    body: "Low-stimulation quiet room available — ask any staff member in hi-vis to direct you.",
-  },
-  {
-    title: "Assistance animals",
-    body: "Certified assistance animals welcome throughout the venue.",
+    title: "Dogs welcome",
+    body: "All dogs are welcome on a lead. Bring water and clean up after them — it's an outdoor venue with plenty of space to stretch.",
   },
   {
     title: "Companion card",
@@ -334,7 +329,7 @@ function Accessibility() {
             advance, get in touch and we&apos;ll sort it.
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {ACCESS.map((a) => (
             <div
               key={a.title}
@@ -356,8 +351,7 @@ function Accessibility() {
 const FAMILY_ITEMS = [
   { strong: "Under-12s free", rest: "with a paying adult — no separate ticket needed" },
   { strong: "Stroller-friendly", rest: "wide aisles throughout" },
-  { strong: "Baby change & feeding", rest: "facilities at every toilet block" },
-  { strong: "Kids' activity zone", rest: "in the Adventure Gear Marquee" },
+  { strong: "Bounce castle", rest: "for the kids, near the food court" },
   { strong: "Family seating", rest: "in the food court" },
   { strong: "Lost child point", rest: "at the main info desk" },
 ];
@@ -397,11 +391,10 @@ function FamilySection() {
             </ul>
           </div>
           <div
-            className="rounded-lg overflow-hidden bg-cover bg-center w-full max-w-[480px] mx-auto"
+            className="rounded-lg overflow-hidden bg-cover bg-center w-full mx-auto"
             style={{
-              aspectRatio: "4/5",
-              backgroundImage:
-                "linear-gradient(rgba(30,120,58,0.1), rgba(30,120,58,0.1)), url('https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=1200&q=80')",
+              aspectRatio: "4/3",
+              backgroundImage: "url('/visit/family.jpg')",
             }}
             role="img"
             aria-label="Family enjoying outdoor expo"
@@ -424,15 +417,11 @@ const FAQS = [
   },
   {
     q: "Can I bring my dog?",
-    a: "Only certified assistance animals are permitted inside the venue. There's a shaded outdoor waiting area near the main entrance if you need to leave a pet briefly — but please don't leave them in cars.",
+    a: "Yes — all dogs are welcome, from certified assistance animals to the family pet. Keep them on a lead, bring water, pick up after them, and please be mindful of crowds and other dogs so everyone (and every pup) has a great day out.",
   },
   {
     q: "Is photography allowed?",
     a: "Personal photography is welcome. Tag us on Instagram @outdoorexponz. Commercial filming requires advance media accreditation — contact us at least two weeks ahead.",
-  },
-  {
-    q: "Can I bring food and drinks?",
-    a: "Water bottles yes. Outside food and drinks are not permitted — we have a full food court with everything from fresh coffee to wood-fired pizza.",
   },
   {
     q: "Are there ATMs on-site?",
@@ -440,7 +429,7 @@ const FAQS = [
   },
   {
     q: "What if it rains?",
-    a: "The expo runs rain or shine — most zones are covered or indoors. Bring a light jacket if forecast is wet. Cancellation only in extreme weather; we'll post updates on social media and email ticket holders.",
+    a: "Rain or shine, the expo goes ahead — and honestly, what better way to test-drive the outdoor gear you're about to buy? Pack a jacket, embrace the Kiwi weather, and consider it part of the experience. Cancellation only in extreme weather; we'll post updates on social media and email ticket holders.",
   },
   {
     q: "Can I buy tickets at the door?",
