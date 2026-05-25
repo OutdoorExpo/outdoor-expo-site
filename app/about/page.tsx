@@ -43,10 +43,10 @@ function Hero() {
         <div className="container-prose">
           <Eyebrow variant="orange">Our story</Eyebrow>
           <h1 className="text-h1 font-extrabold text-white mb-3 mt-2 leading-[1.1]">
-            Pioneered by an
-            <br />
-            outdoor enthusiast,
-            <br />
+            Pioneered by an{" "}
+            <br className="hidden md:block" />
+            outdoor enthusiast,{" "}
+            <br className="hidden md:block" />
             like you.
           </h1>
           <p className="text-body-l text-white opacity-95 max-w-[560px]">
