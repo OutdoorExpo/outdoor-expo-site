@@ -27,13 +27,16 @@ export default function AboutPage() {
 function Hero() {
   return (
     <section
-      className="relative flex items-center text-white py-12 md:py-15 overflow-hidden"
+      className="relative flex items-end text-white py-12 md:py-15 overflow-hidden"
       style={{
-        minHeight: "55vh",
+        // Match the wide cinematic aspect ratio of the source (16:7) on desktop,
+        // with a sensible mobile minimum so the text still has room.
+        aspectRatio: "16 / 7",
+        minHeight: "360px",
         backgroundImage:
-          "linear-gradient(rgba(15,14,12,0.55), rgba(15,14,12,0.35)), url('/about/hero.jpg')",
+          "linear-gradient(rgba(15,14,12,0.35) 0%, rgba(15,14,12,0.65) 100%), url('/about/hero.jpg')",
         backgroundSize: "cover",
-        backgroundPosition: "center",
+        backgroundPosition: "center top",
       }}
     >
       <div className="container-site relative z-10">
@@ -89,10 +92,10 @@ function OurStory() {
             className="rounded-lg overflow-hidden bg-cover bg-center w-full"
             style={{
               aspectRatio: "4/3",
-              backgroundImage: "url('/about/billboard.jpg')",
+              backgroundImage: "url('/about/our-story.jpg')",
             }}
             role="img"
-            aria-label="Outdoor Expo 2025 billboard"
+            aria-label="Outdoor Expo — our story"
           />
         </div>
       </div>
