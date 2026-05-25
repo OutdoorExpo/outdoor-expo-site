@@ -1,6 +1,7 @@
 import { Eyebrow } from "@/components/Eyebrow";
 import { Button } from "@/components/Button";
 import { Newsletter } from "@/components/home/Newsletter";
+import { FLICKET_TICKETS_URL } from "@/lib/constants";
 
 export const metadata = {
   title: "Plan Your Visit",
@@ -13,6 +14,7 @@ export default function VisitPage() {
     <>
       <VisitHero />
       <QuickFacts />
+      <Tickets />
       <GettingHere />
       <WhatsOn />
       <Accessibility />
@@ -25,6 +27,7 @@ export default function VisitPage() {
 
 /* ============== 1 · HERO ============== */
 const ANCHORS = [
+  { href: "#tickets", label: "Tickets" },
   { href: "#getting-here", label: "Getting here" },
   { href: "#whats-on", label: "What's on" },
   { href: "#accessibility", label: "Accessibility" },
@@ -103,7 +106,110 @@ function QuickFacts() {
   );
 }
 
-/* ============== 3 · GETTING HERE ============== */
+/* ============== 3 · TICKETS ============== */
+const TICKETS = [
+  {
+    name: "Adult",
+    age: "18+",
+    price: "$20",
+    blurb:
+      "One full day of outdoor inspiration. Access all 13 zones, 300+ exhibitor stands, demos, and guest sessions.",
+  },
+  {
+    name: "Youth",
+    age: "13–17",
+    price: "$15",
+    blurb:
+      "All the gear, all the demos — same access as an adult ticket at a youth rate.",
+  },
+  {
+    name: "Family Pass",
+    age: "2 adults + 2 youths",
+    price: "$55",
+    blurb:
+      "The best value for the whole whānau. Covers two adults (18+) and two youths (13–17) for one day.",
+    highlight: true,
+  },
+  {
+    name: "Child",
+    age: "0–12",
+    price: "Free",
+    blurb:
+      "Children under 13 enter free of charge. Must be accompanied by a ticketed adult.",
+  },
+];
+
+function Tickets() {
+  return (
+    <section id="tickets" className="bg-paper section-content scroll-mt-20">
+      <div className="container-site">
+        <div className="container-prose mx-auto text-center mb-7">
+          <Eyebrow>Tickets</Eyebrow>
+          <h2 className="text-h1 font-extrabold text-green-500 mb-3 mt-2 leading-tight">
+            Join the adventure.
+          </h2>
+          <p className="text-body-l text-dark-grey">
+            Secure your tickets for New Zealand&rsquo;s largest celebration of
+            the great outdoors. Tickets are valid for{" "}
+            <strong className="text-charcoal">one day only</strong> — pick the
+            day that works for you and your whānau.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
+          {TICKETS.map((t) => (
+            <div
+              key={t.name}
+              className={`bg-white rounded p-4 md:p-5 flex flex-col ${
+                t.highlight
+                  ? "border-2 border-orange-500 lg:scale-[1.02] shadow-md"
+                  : "border border-light-grey"
+              }`}
+            >
+              {t.highlight && (
+                <span className="inline-block self-start mb-2 uppercase tracking-[0.1em] font-extrabold text-body-s px-2 py-1 rounded bg-orange-500 text-white">
+                  Best Value
+                </span>
+              )}
+              <h3 className="font-heading font-bold text-h3 text-charcoal mb-1 leading-tight">
+                {t.name}
+              </h3>
+              <div className="text-eyebrow uppercase tracking-[0.08em] font-semibold text-mid-grey mb-3">
+                {t.age}
+              </div>
+              <div className="font-heading font-extrabold text-[40px] md:text-[44px] text-orange-500 leading-none mb-3">
+                {t.price}
+                {t.price !== "Free" && (
+                  <span className="text-body-s font-semibold text-mid-grey ml-1">
+                    NZD
+                  </span>
+                )}
+              </div>
+              <p className="text-body-s text-dark-grey flex-grow mb-3">
+                {t.blurb}
+              </p>
+              <Button
+                href={FLICKET_TICKETS_URL}
+                variant={t.highlight ? "primary" : "outline-charcoal"}
+                size="md"
+                className="w-full"
+              >
+                {t.price === "Free" ? "Learn More" : "Get Tickets"}
+              </Button>
+            </div>
+          ))}
+        </div>
+
+        <p className="text-body-s text-mid-grey text-center mt-5">
+          Tickets are sold via Flicket. Prices in NZD and include GST. Children
+          0–12 must be accompanied by a ticketed adult to enter.
+        </p>
+      </div>
+    </section>
+  );
+}
+
+/* ============== 4 · GETTING HERE ============== */
 const TRANSPORT = [
   {
     icon: "📍",
