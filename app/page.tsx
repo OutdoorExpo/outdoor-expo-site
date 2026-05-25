@@ -6,6 +6,7 @@ import { Stats } from "@/components/home/Stats";
 import { About } from "@/components/home/About";
 import { ZonesPreview } from "@/components/home/ZonesPreview";
 import { ReturningExhibitors } from "@/components/home/ReturningExhibitors";
+import { EventGallery } from "@/components/home/EventGallery";
 import { Testimonials } from "@/components/home/Testimonials";
 import { Newsletter } from "@/components/home/Newsletter";
 
@@ -20,6 +21,7 @@ export default function HomePage() {
       <About />
       <ZonesPreview />
       <ReturningExhibitors />
+      <EventGallery />
       <Testimonials />
       <Newsletter />
     </>
