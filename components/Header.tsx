@@ -12,6 +12,7 @@ const navItems = [
   { href: "/exhibitors", label: "Exhibitors" },
   { href: "/zones", label: "Zones" },
   { href: "/exhibit-with-us", label: "Exhibit With Us" },
+  { href: "/sponsor", label: "Sponsor" },
   { href: "/about", label: "About" },
 ];
 
