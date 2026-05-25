@@ -1,6 +1,7 @@
 import { Hero } from "@/components/home/Hero";
 import { DualCTA } from "@/components/home/DualCTA";
 import { Countdown } from "@/components/home/Countdown";
+import { EventDetails } from "@/components/home/EventDetails";
 import { Stats } from "@/components/home/Stats";
 import { About } from "@/components/home/About";
 import { ZonesPreview } from "@/components/home/ZonesPreview";
@@ -14,6 +15,7 @@ export default function HomePage() {
       <Hero />
       <DualCTA />
       <Countdown />
+      <EventDetails />
       <Stats />
       <About />
       <ZonesPreview />

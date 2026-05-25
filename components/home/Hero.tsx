@@ -1,5 +1,6 @@
 import { Button } from "../Button";
 import { Eyebrow } from "../Eyebrow";
+import { FLICKET_TICKETS_URL } from "@/lib/constants";
 
 export function Hero() {
   return (
@@ -23,7 +24,7 @@ export function Hero() {
           <p className="text-body-l text-white opacity-95 mb-5 max-w-[560px]">
             Three days. 300+ brands across 13 zones.
           </p>
-          <Button href="/tickets" variant="primary" size="lg">
+          <Button href={FLICKET_TICKETS_URL} variant="primary" size="lg">
             Get Tickets
           </Button>
         </div>

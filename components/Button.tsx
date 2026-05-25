@@ -8,10 +8,13 @@ import { ComponentPropsWithoutRef } from "react";
  * - primary: orange solid — ONE per section maximum
  * - outline-charcoal: dark outline on light backgrounds
  * - outline-white: white outline on dark backgrounds
+ * - outline-orange: orange outline for secondary CTAs in orange-emphasis sections
  *
  * Sizes:
  * - md: 48px height (default, touch-rec compliant)
  * - lg: 56px height (used for primary CTAs on Hero, Submit)
+ *
+ * External links: if href starts with http(s), automatically opens in new tab.
  */
 
 type Variant = "primary" | "outline-charcoal" | "outline-white" | "outline-orange";
@@ -21,6 +24,7 @@ type ButtonProps = {
   variant?: Variant;
   size?: Size;
   href?: string;
+  external?: boolean;
   children: React.ReactNode;
   className?: string;
 } & Omit<ComponentPropsWithoutRef<"button">, "className">;
@@ -44,6 +48,7 @@ export function Button({
   variant = "primary",
   size = "md",
   href,
+  external,
   children,
   className = "",
   ...rest
@@ -59,6 +64,20 @@ export function Button({
   ].join(" ");
 
   if (href) {
+    // Auto-detect external links (http/https)
+    const isExternal = external ?? /^https?:\/\//.test(href);
+    if (isExternal) {
+      return (
+        <a
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={classes}
+        >
+          {children}
+        </a>
+      );
+    }
     return (
       <Link href={href} className={classes}>
         {children}
