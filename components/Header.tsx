@@ -8,9 +8,7 @@ import { FLICKET_TICKETS_URL } from "@/lib/constants";
 
 const navItems = [
   { href: "/visit", label: "Visit" },
-  { href: FLICKET_TICKETS_URL, label: "Tickets", external: true },
   { href: "/exhibitors", label: "Exhibitors" },
-  { href: "/zones", label: "Zones" },
   { href: "/exhibit-with-us", label: "Exhibit With Us" },
   { href: "/sponsor", label: "Sponsor" },
   { href: "/about", label: "About" },
