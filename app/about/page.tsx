@@ -147,7 +147,7 @@ function WhyWeDoIt() {
 }
 
 /* ============== 4 · GIVING BACK ============== */
-const PARTNERS = [
+const PARTNERS_2025 = [
   {
     name: "Canterbury West Coast Air Rescue",
     body: "The rescue helicopter service that responds when New Zealanders are in trouble outdoors — on the trail, in the alpine, or out at sea.",
@@ -171,14 +171,15 @@ function GivingBack() {
             <br />
             who keep us safe outdoors.
           </h2>
-          <p className="text-body-l text-white opacity-90">
-            Outdoor Expo is proudly aligned with two of New Zealand&apos;s
-            most important outdoor safety charities. A portion of every
-            ticket and stand goes to supporting their work.
+          <p className="text-body-l text-white opacity-90 mb-3">
+            Outdoor Expo gives back to the charities that protect Kiwis in
+            the places we love to explore. In 2025, we proudly supported
+            two of New Zealand&apos;s most important outdoor safety
+            organisations:
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
-          {PARTNERS.map((p) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 mb-5">
+          {PARTNERS_2025.map((p) => (
             <a
               key={p.name}
               href={p.url}
@@ -186,6 +187,9 @@ function GivingBack() {
               rel="noopener noreferrer"
               className="block bg-white/5 hover:bg-white/10 border border-white/15 hover:border-orange-500 rounded p-4 transition-colors no-underline"
             >
+              <div className="text-eyebrow uppercase tracking-[0.1em] font-semibold text-orange-500 mb-2">
+                2025 partner
+              </div>
               <h3 className="text-h3 font-bold text-white mb-2 leading-tight">
                 {p.name}
               </h3>
@@ -195,6 +199,15 @@ function GivingBack() {
               </span>
             </a>
           ))}
+        </div>
+        <div className="container-prose">
+          <p className="text-body text-white opacity-90">
+            <strong className="text-orange-500">For 2026,</strong> our
+            charity partners will be announced closer to the event — but
+            our commitment stays the same: a portion of every ticket and
+            stand supports the people and organisations keeping Kiwis safe
+            outdoors.
+          </p>
         </div>
       </div>
     </section>
