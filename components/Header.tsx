@@ -26,7 +26,7 @@ export function Header() {
             <Logo />
           </Link>
 
-          {/* Desktop nav */}
+          {/* Desktop nav — only on large screens */}
           <nav className="hidden lg:flex items-center gap-4">
             {navItems.map((item) =>
               item.external ? (
@@ -52,14 +52,17 @@ export function Header() {
           </nav>
 
           <div className="flex items-center gap-2">
+            {/* GET TICKETS — hidden on mobile (visible only at md and above)
+                Mobile users have a prominent GET TICKETS in the Hero already,
+                so we avoid duplication here. Tablet and desktop keep it. */}
             <Button
               href={FLICKET_TICKETS_URL}
               size="md"
-              className="!h-10 !px-4 !text-[13px]"
+              className="hidden md:inline-flex !h-10 !px-4 !text-[13px]"
             >
               Get Tickets
             </Button>
-            {/* Mobile hamburger */}
+            {/* Mobile hamburger — visible up to lg */}
             <button
               type="button"
               onClick={() => setOpen(true)}
