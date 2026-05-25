@@ -2,6 +2,7 @@ import { Eyebrow } from "@/components/Eyebrow";
 import { Button } from "@/components/Button";
 import { Newsletter } from "@/components/home/Newsletter";
 import { HubSpotForm } from "@/components/HubSpotForm";
+import { TestimonialSlider } from "@/components/TestimonialSlider";
 
 export const metadata = {
   title: "Exhibit With Us",
@@ -281,33 +282,45 @@ function ApplicationForm() {
   );
 }
 
-/* ============== 7 · TESTIMONIAL ============== */
+/* ============== 7 · TESTIMONIAL SLIDER ============== */
+const TESTIMONIALS = [
+  {
+    name: "Warthog Sharpeners",
+    quote:
+      "We had a great show! The other exhibitors, the staff, Marc — all so amazing! Marc, you ran a great show and were SOOOO helpful and friendly! Will definitely be doing the show again in the future.",
+  },
+  {
+    name: "All Over Taxidermy",
+    quote:
+      "Thank you for putting together such a great event at the outdoor expo in Christchurch. It was a fantastic opportunity for us to connect with a passionate audience and showcase what All Over Taxidermy has to offer. The atmosphere was lively, the organisation was seamless — and we are already looking forward to future expos!",
+  },
+  {
+    name: "Rae Line Premium Sports Boats",
+    quote: "Got some good inquiries and a sale of a new boat.",
+  },
+  {
+    name: "Voodoo Q",
+    quote:
+      "The quality and demographic of the people through the gate were great.",
+  },
+  {
+    name: "Arctic Sammy",
+    quote:
+      "We enjoyed the exhibitors as well as the guests. Good mixed crowd!",
+  },
+  {
+    name: "GCH Aviation",
+    quote:
+      "Great foot traffic in our site and many leads for future business.",
+  },
+];
+
 function Testimonial() {
   return (
-    <section
-      className="relative text-white section-content overflow-hidden"
-      style={{
-        backgroundImage:
-          "linear-gradient(rgba(15,14,12,0.7), rgba(15,14,12,0.7)), url('/exhibit/quote-bg.jpg')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-    >
-      <div className="container-site">
-        <div className="container-prose mx-auto text-center">
-          <Eyebrow variant="orange">From a 2025 exhibitor</Eyebrow>
-          <blockquote className="font-heading text-h2 font-bold text-white mt-3 mb-4 leading-snug">
-            &ldquo;We had a great show! The other exhibitors, the staff, Marc
-            — all so amazing! Marc, you ran a great show and were SOOOO
-            helpful and friendly! Will definitely be doing the show again in
-            the future.&rdquo;
-          </blockquote>
-          <div className="text-body-l font-semibold text-white opacity-90">
-            Warthog Sharpeners
-          </div>
-        </div>
-      </div>
-    </section>
+    <TestimonialSlider
+      testimonials={TESTIMONIALS}
+      bgImage="/exhibit/quote-bg.jpg"
+    />
   );
 }
 
@@ -376,7 +389,7 @@ function ContactStrip() {
   return (
     <section className="bg-charcoal text-white section-compact">
       <div className="container-site text-center">
-        <Eyebrow variant="orange">Talk to Marc</Eyebrow>
+        <Eyebrow variant="orange">Talk to us</Eyebrow>
         <p className="text-h3 font-bold mt-2 mb-3">
           Questions? Want to chat through the options?
         </p>
