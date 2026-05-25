@@ -81,12 +81,6 @@ function Grid() {
   return (
     <section className="bg-white section-content">
       <div className="container-site">
-        <div className="mb-5 flex items-baseline justify-between gap-3 flex-wrap">
-          <h2 className="text-h3 font-bold text-charcoal">
-            {data.length} exhibitors in 2025
-          </h2>
-          <p className="text-body-s text-mid-grey">Sorted A–Z</p>
-        </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
           {data.map((e) => (
             <Card key={e.slug} e={e} />
