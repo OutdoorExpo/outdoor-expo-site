@@ -224,7 +224,7 @@ function FounderQuote() {
       className="relative text-white section-content overflow-hidden"
       style={{
         backgroundImage:
-          "linear-gradient(rgba(15,14,12,0.7), rgba(15,14,12,0.7)), url('/about/community.jpg')",
+          "linear-gradient(rgba(15,14,12,0.7), rgba(15,14,12,0.7)), url('/about/looking-ahead.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
