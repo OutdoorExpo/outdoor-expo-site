@@ -6,7 +6,7 @@ import { HubSpotForm } from "@/components/HubSpotForm";
 export const metadata = {
   title: "Exhibit With Us",
   description:
-    "Get your brand in front of 20,000+ outdoor enthusiasts at NZ's largest outdoor expo. Canterbury Agricultural Park, Christchurch · 2–4 October 2026.",
+    "Engage with 20,000+ expected visitors — outdoor enthusiasts and families — at NZ's largest outdoor expo. Canterbury Agricultural Park, Christchurch · 2–4 October 2026.",
 };
 
 const PROSPECTUS_URL =
@@ -46,16 +46,17 @@ function Hero() {
         <div className="container-prose">
           <Eyebrow variant="orange">Exhibit at Outdoor Expo 2026</Eyebrow>
           <h1 className="text-display font-extrabold text-white mb-3 mt-2">
-            Get your brand
+            Engage With 20,000+
             <br />
-            in front of NZ&apos;s
+            Ready-to-Buy Visitors
             <br />
-            outdoor buyers.
+            From All Walks of Life
           </h1>
           <p className="text-body-l text-white opacity-95 mb-5 max-w-[560px]">
-            20,000+ visitors. 300+ exhibitors. Three days. The South
-            Island&apos;s biggest gathering of outdoor enthusiasts — and the
-            only event where the entire industry meets them face-to-face.
+            20,000+ expected visitors. 300+ exhibitors. Three days. The South
+            Island&apos;s biggest gathering of outdoor enthusiasts and their
+            families — and the only event where the entire industry meets them
+            face-to-face.
           </p>
           <div className="flex flex-wrap gap-2">
             <Button href="#apply" variant="primary" size="lg">
@@ -75,8 +76,8 @@ function Hero() {
 const REASONS = [
   {
     eyebrow: "Ready to buy",
-    title: "Reach people with money to spend.",
-    body: "Visitors come to compare gear, talk to the makers, and buy. The average household spend on outdoor gear in NZ is among the highest in the world.",
+    title: "Visitors with high purchase intent.",
+    body: "Attendees come to compare gear, talk to the makers, and buy. The average household spend on outdoor gear in NZ is among the highest in the world.",
   },
   {
     eyebrow: "South Island only",
@@ -103,8 +104,8 @@ function WhyExhibit() {
           </h2>
           <p className="text-body-l text-dark-grey">
             Outdoor Expo isn&apos;t a trade show. It&apos;s where Kiwi
-            outdoor enthusiasts — your customers — come to discover, compare,
-            and buy.
+            outdoor enthusiasts and their families — your customers — come to
+            discover, compare, and buy.
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
@@ -157,7 +158,8 @@ const INCLUDED = [
   "Branded exhibitor profile on outdoorexpo.co.nz (200+ visits each)",
   "Three days of high-intent foot traffic in your stand",
   "Inclusion in pre-event social campaigns reaching 100K+ Kiwis",
-  "Access to a hands-on event team — Marc personally onboards every exhibitor",
+  "Access to a hands-on event team — our exhibitor specialists personally onboard every exhibitor",
+  "Exclusive discounts and benefits through our trusted preferred suppliers",
   "Pre-event marketing toolkit (graphics, copy, hashtags)",
   "Post-event recap report with footfall and engagement data",
 ];
@@ -229,7 +231,7 @@ function ProspectusCTA() {
         </h2>
         <p className="text-body-l text-white opacity-95 mb-5 max-w-prose mx-auto">
           Stand sizes, pricing, package inclusions, marquee layout, and
-          audience demographics — all in one 14-page PDF.
+          audience demographics — all in one document.
         </p>
         <Button href={PROSPECTUS_URL} variant="primary" size="lg">
           Download Prospectus (PDF)
@@ -247,7 +249,7 @@ function ApplicationForm() {
         <div className="container-prose mx-auto mb-7">
           <Eyebrow>Apply to exhibit</Eyebrow>
           <h2 className="text-h1 font-extrabold text-charcoal mb-3 mt-2">
-            Register your interest.
+            Join the 2026 Outdoor Expo!
           </h2>
           <p className="text-body-l text-dark-grey mb-2">
             Complete the form below to express interest. This is{" "}
