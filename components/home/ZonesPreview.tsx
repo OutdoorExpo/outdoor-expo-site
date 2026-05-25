@@ -7,7 +7,7 @@ export function ZonesPreview() {
       className="relative text-white section-content"
       style={{
         backgroundImage:
-          "linear-gradient(rgba(15,14,12,0.7), rgba(15,14,12,0.7)), url('https://images.unsplash.com/photo-1487730116645-74489c95b41b?w=1920&q=80')",
+          "linear-gradient(rgba(15,14,12,0.55), rgba(15,14,12,0.65)), url('/home/zones-bg.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
