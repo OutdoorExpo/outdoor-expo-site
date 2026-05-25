@@ -48,9 +48,11 @@ export function ReturningExhibitors() {
                 src={`/home/logos/${logo.file}`}
                 alt={`${logo.name} logo`}
                 loading="lazy"
-                width="240"
-                height="180"
+                decoding="async"
+                width="700"
+                height="450"
                 className="w-full h-full object-contain"
+                style={{ imageRendering: "auto" }}
               />
             </div>
           ))}
