@@ -27,27 +27,15 @@ export function Header() {
 
           {/* Desktop nav — only on large screens */}
           <nav className="hidden lg:flex items-center gap-4">
-            {navItems.map((item) =>
-              item.external ? (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-body-s font-medium text-charcoal hover:text-green-500 transition-colors"
-                >
-                  {item.label}
-                </a>
-              ) : (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="text-body-s font-medium text-charcoal hover:text-green-500 transition-colors"
-                >
-                  {item.label}
-                </Link>
-              )
-            )}
+            {navItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="text-body-s font-medium text-charcoal hover:text-green-500 transition-colors"
+              >
+                {item.label}
+              </Link>
+            ))}
           </nav>
 
           <div className="flex items-center gap-2">
@@ -96,29 +84,16 @@ export function Header() {
             </button>
           </div>
           <nav className="flex-1 container-site py-4">
-            {navItems.map((item) =>
-              item.external ? (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => setOpen(false)}
-                  className="block py-2 text-h3 font-heading font-semibold text-white border-b border-white/10"
-                >
-                  {item.label}
-                </a>
-              ) : (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  onClick={() => setOpen(false)}
-                  className="block py-2 text-h3 font-heading font-semibold text-white border-b border-white/10"
-                >
-                  {item.label}
-                </Link>
-              )
-            )}
+            {navItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={() => setOpen(false)}
+                className="block py-2 text-h3 font-heading font-semibold text-white border-b border-white/10"
+              >
+                {item.label}
+              </Link>
+            ))}
           </nav>
           <div className="container-site pb-4">
             <Button href={FLICKET_TICKETS_URL} variant="primary" size="lg" className="w-full">
