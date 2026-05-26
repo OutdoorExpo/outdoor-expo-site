@@ -28,11 +28,11 @@ export default function GalleryPage() {
           <div className="max-w-[720px]">
             <Eyebrow>The 2025 Expo</Eyebrow>
             <h1 className="text-h1 font-extrabold text-charcoal mb-2 mt-2">
-              2025 in pictures.
+              Highlights from 2025
             </h1>
             <p className="text-body-l text-dark-grey">
-              {PHOTO_COUNT} moments from last year&apos;s show — captured by our
-              event photographer over three days at Wolfbrook Arena.
+              Explore moments from last year&apos;s Outdoor Expo — from
+              exhibitor displays and live demos to families enjoying the day.
             </p>
           </div>
         </div>

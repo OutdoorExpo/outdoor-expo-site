@@ -46,7 +46,7 @@ export function Header() {
             <Button
               href={FLICKET_TICKETS_URL}
               size="md"
-              className="hidden md:inline-flex !h-10 !px-4 !text-[13px]"
+              className="hidden md:inline-flex !h-9 !px-5 !text-[12px]"
             >
               Get Tickets
             </Button>
