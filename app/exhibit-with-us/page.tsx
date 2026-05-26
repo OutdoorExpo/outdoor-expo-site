@@ -47,10 +47,10 @@ function Hero() {
         <div className="container-prose">
           <Eyebrow variant="orange">Exhibit at Outdoor Expo 2026</Eyebrow>
           <h1 className="text-h1 font-extrabold text-white mb-3 mt-2 leading-[1.1]">
-            Where Your Brand Meets
-            <br />
-            20,000+ Expected Visitors
-            <br />
+            Where Your Brand Meets{" "}
+            <br className="hidden md:block" />
+            20,000+ Expected Visitors{" "}
+            <br className="hidden md:block" />
             Face-to-Face.
           </h1>
           <p className="text-body-l text-white opacity-95 mb-5 max-w-[560px]">

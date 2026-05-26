@@ -22,28 +22,35 @@
 }
 
 @layer components {
+  /* Eyebrow — standard tracked label used above headings */
   .eyebrow {
     @apply inline-block text-eyebrow uppercase tracking-[0.08em] text-orange-500 font-semibold;
   }
   .eyebrow-white {
     @apply inline-block text-eyebrow uppercase tracking-[0.08em] text-white opacity-90 font-semibold;
   }
+
+  /* Section padding presets — Rule #2 — choose ONE per section */
   .section-hero {
-    @apply py-12 md:py-15;
+    @apply py-12 md:py-15;  /* 96 / 120 desktop, scales down on mobile */
   }
   .section-content {
-    @apply py-12 md:py-15;
+    @apply py-12 md:py-15;  /* 96 / 120 — About, Testimonials, Exhibitors */
   }
   .section-compact {
-    @apply py-6 md:py-8;
+    @apply py-6 md:py-8;  /* 48 / 64 — Countdown, Stats */
   }
   .section-conversion {
-    @apply py-10 md:py-12;
+    @apply py-10 md:py-12;  /* 80 / 96 — Newsletter, Dual CTA */
   }
+
+  /* Container — Rule #3 — every page content sits inside this */
   .container-site {
-    @apply max-w-content mx-auto px-3 md:px-4;
+    @apply max-w-content mx-auto px-3 md:px-4;  /* 24 mobile / 32 desktop */
   }
+
+  /* Prose container — for narrow text blocks like Hero copy */
   .container-prose {
-    @apply max-w-prose;
+    @apply max-w-prose;  /* 760px max */
   }
 }

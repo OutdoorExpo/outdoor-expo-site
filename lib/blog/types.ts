@@ -22,6 +22,12 @@ export interface BlogPostMeta {
   heroImage: {
     src: string;
     alt: string;
+    /**
+     * CSS object-position for the hero crop. Defaults to "center 55%".
+     * Override per-post when a different focal point looks better —
+     * e.g. "center 35%" to emphasise sky, "center 70%" for a foreground subject.
+     */
+    objectPosition?: string;
   };
   /** Tags for related-post filtering (optional) */
   tags?: string[];

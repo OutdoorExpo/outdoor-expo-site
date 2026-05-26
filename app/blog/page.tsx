@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Eyebrow } from "@/components/Eyebrow";
 import { PostCard } from "@/components/blog/PostCard";
 import { BLOG_POSTS } from "@/lib/blog/posts";
+import { Newsletter } from "@/components/home/Newsletter";
 
 export const metadata: Metadata = {
   title: "Blog — Outdoor Expo NZ",
@@ -62,16 +63,21 @@ export default function BlogIndexPage() {
         </section>
       )}
 
-      {/* Empty state when only the featured post exists */}
+      {/* When only the featured post exists, add a brief spacing band before the
+          Newsletter. The promise of "subscribe below" lives in the Newsletter
+          section itself, so we don't duplicate it here. */}
       {rest.length === 0 && (
-        <section className="bg-white pt-10 md:pt-14 pb-16 md:pb-24">
+        <section className="bg-white pt-10 md:pt-14 pb-2 md:pb-4">
           <div className="container-site">
             <p className="text-body text-mid-grey text-center max-w-[480px] mx-auto">
-              More posts coming soon. Subscribe below to be the first to know.
+              More posts coming soon.
             </p>
           </div>
         </section>
       )}
+
+      {/* Newsletter signup — shown on every state of the blog index. */}
+      <Newsletter />
     </main>
   );
 }

@@ -20,7 +20,7 @@ export function PostHero({ post }: PostHeroProps) {
         src={post.heroImage.src}
         alt={post.heroImage.alt}
         className="absolute inset-0 w-full h-full object-cover"
-        style={{ objectPosition: "center 55%" }}
+        style={{ objectPosition: post.heroImage.objectPosition ?? "center 55%" }}
       />
       <div
         className="absolute inset-0"

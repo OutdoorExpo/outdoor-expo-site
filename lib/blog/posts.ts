@@ -20,7 +20,9 @@ export const BLOG_POSTS: BlogPostMeta[] = [
     readingMinutes: 5,
     heroImage: {
       src: "/blog/duck-hunting-2026/hero.jpg",
-      alt: "Duck hunting pond in New Zealand with a maimai hide visible in the background and decoy ducks on the water",
+      alt: "Pre-dawn maimai pond in New Zealand — purple-pink sky reflected on still water with decoy ducks set out for opening morning",
+      // Dawn shot — shift the crop upward so the pink/purple sky is the dominant element
+      objectPosition: "center 35%",
     },
     tags: ["Hunting", "Duck Season", "First Timer"],
   },

@@ -7,6 +7,10 @@ import Image from "next/image";
  * within the 375px viewport alongside GET TICKETS + hamburger menu.
  * - Mobile (<= 600px): ~32px height
  * - Desktop: ~40px height
+ *
+ * Variants:
+ * - default: full colour horizontal logo (white/light backgrounds)
+ * - white: all-white horizontal logo (dark backgrounds — footer, mobile menu)
  */
 export function Logo({
   variant = "default",
