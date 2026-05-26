@@ -251,9 +251,15 @@ export default function DuckHunting2026Post() {
           ]}
           uniform
         />
-
-        <PostCTA />
       </PostBody>
+
+      {/* CTA must live OUTSIDE PostBody — PostBody applies descendant
+          selectors (e.g. [&_p]:text-charcoal, [&_a]:text-green-500) that
+          would otherwise turn the CTA's white text and buttons invisible
+          on its dark background. */}
+      <div className="max-w-[760px] mx-auto px-4 md:px-6 pb-12 md:pb-16">
+        <PostCTA />
+      </div>
     </main>
   );
 }
