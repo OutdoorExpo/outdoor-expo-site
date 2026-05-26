@@ -57,7 +57,7 @@ const footerColumns = [
     links: [
       { href: "/about", label: "Our Story" },
       { href: "/gallery", label: "2025 Gallery" },
-      { href: "/news", label: "News" },
+      { href: "/blog", label: "Blog" },
     ],
   },
   {
