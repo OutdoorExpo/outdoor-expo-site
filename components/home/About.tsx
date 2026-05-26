@@ -14,7 +14,7 @@ const columns = [
   {
     eyebrow: "Built for Everyone",
     heading: "First-timers to veterans.",
-    body: "Bring the family, bring the questions, leave with what you need. Built for the way Kiwis get outdoors.",
+    body: "Bring the family, bring the questions, leave with what you need. Made for how Kiwis enjoy the outdoors.",
   },
 ];
 

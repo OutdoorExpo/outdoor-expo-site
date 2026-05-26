@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
+import { Button } from "../Button";
 import { Eyebrow } from "../Eyebrow";
 import { Lightbox, type LightboxImage } from "../Lightbox";
 
@@ -25,6 +25,7 @@ const PHOTOS: { file: string; alt: string; span?: "wide" | "tall" }[] = [
   { file: "home-10.jpg", alt: "Outdoor Expo 2025 — event moment" },
   { file: "home-11.jpg", alt: "Outdoor Expo 2025 — event moment", span: "tall" },
   { file: "home-12.jpg", alt: "Outdoor Expo 2025 — event moment" },
+  { file: "home-13.jpg", alt: "Outdoor Expo 2025 — event moment" },
 ];
 
 const LIGHTBOX_IMAGES: LightboxImage[] = PHOTOS.map((p) => ({
@@ -47,7 +48,7 @@ export function EventGallery() {
         <div className="max-w-[680px] mb-6">
           <Eyebrow>2025 In Pictures</Eyebrow>
           <h2 className="text-h1 font-extrabold text-charcoal mb-2 mt-2">
-            What 20,000+ visitors
+            What our visitors
             <br />
             experienced last year.
           </h2>
@@ -106,17 +107,10 @@ export function EventGallery() {
           }
         `}</style>
 
-        <div className="flex justify-center">
-          <Link
-            href="/gallery"
-            className="inline-flex items-center gap-2 text-body font-semibold text-green-500 hover:text-green-600 transition-colors"
-          >
+        <div className="flex justify-center mt-6 md:mt-8">
+          <Button href="/gallery" variant="outline-charcoal" size="md">
             View Full 2025 Gallery
-            <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.5">
-              <line x1="5" y1="12" x2="19" y2="12" />
-              <polyline points="12 5 19 12 12 19" />
-            </svg>
-          </Link>
+          </Button>
         </div>
       </div>
 

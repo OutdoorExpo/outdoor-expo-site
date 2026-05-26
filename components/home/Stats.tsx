@@ -11,9 +11,9 @@ export function Stats() {
     <section className="bg-white section-content text-center">
       <div className="container-site">
         <Eyebrow>The Numbers</Eyebrow>
-        <div className="grid grid-cols-3 gap-4 md:gap-6 max-w-[720px] mx-auto mt-6">
+        <div className="grid grid-cols-3 gap-4 md:gap-8 max-w-[640px] mx-auto mt-6 place-items-center">
           {stats.map((s) => (
-            <div key={s.label}>
+            <div key={s.label} className="text-center">
               <div className="font-heading font-extrabold text-[48px] md:text-[72px] text-green-500 leading-none">
                 {s.value}
               </div>
