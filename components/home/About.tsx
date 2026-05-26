@@ -9,12 +9,12 @@ const columns = [
   {
     eyebrow: "South Island's Own",
     heading: "The industry comes to you.",
-    body: "The only place the entire outdoor industry gathers in the South Island. No flight to Auckland required.",
+    body: "The only place the entire outdoor industry gathers in the South Island. No flight to the North Island required.",
   },
   {
     eyebrow: "Built for Everyone",
     heading: "First-timers to veterans.",
-    body: "Bring the family, bring the questions, leave with what you need. Made for the way Kiwis actually live outdoors.",
+    body: "Bring the family, bring the questions, leave with what you need. Built for the way Kiwis get outdoors.",
   },
 ];
 

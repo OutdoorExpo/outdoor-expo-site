@@ -2,9 +2,8 @@ import { Eyebrow } from "../Eyebrow";
 
 const stats = [
   { value: "300+", label: "Exhibitors" },
-  { value: "13", label: "Zones" },
+  { value: "12", label: "Zones" },
   { value: "3", label: "Days" },
-  { value: "20K+", label: "Visitors" },
 ];
 
 export function Stats() {
@@ -12,7 +11,7 @@ export function Stats() {
     <section className="bg-white section-content text-center">
       <div className="container-site">
         <Eyebrow>The Numbers</Eyebrow>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-[960px] mx-auto mt-6">
+        <div className="grid grid-cols-3 gap-4 md:gap-6 max-w-[720px] mx-auto mt-6">
           {stats.map((s) => (
             <div key={s.label}>
               <div className="font-heading font-extrabold text-[48px] md:text-[72px] text-green-500 leading-none">

@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     template: "%s | Outdoor Expo 2026",
   },
   description:
-    "Three days. 300+ brands across 13 zones. Canterbury Agricultural Park, Christchurch · 2–4 October 2026.",
+    "Three days. 300+ brands across 12 zones. Canterbury Agricultural Park, Christchurch · 2–4 October 2026.",
   openGraph: {
     title: "Outdoor Expo 2026",
     description:

@@ -12,11 +12,11 @@ const LOGOS = [
   { file: "mountain-high.svg", name: "Mountain High Clothing" },
   { file: "pure-salt.svg", name: "Pure Salt" },
   { file: "canterbury-vehicle-accessories.svg", name: "Canterbury Vehicle Accessories" },
-  { file: "bays-boating.svg", name: "Bays Boating" },
+  { file: "arctic-sammy.svg", name: "Arctic Sammy" },
   { file: "bush-bath.svg", name: "Bush Bath" },
   { file: "white-pointer-boats.svg", name: "White Pointer Boats" },
   { file: "kaweka.svg", name: "Kaweka Outdoor Equipment" },
-  { file: "sports-marine.svg", name: "Sports Marine" },
+  { file: "hybrid-bikes.svg", name: "Hybrid Bikes" },
 ];
 
 /**

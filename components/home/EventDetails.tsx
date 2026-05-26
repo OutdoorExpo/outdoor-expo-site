@@ -35,7 +35,7 @@ export function EventDetails() {
     {
       label: "Hours",
       value: EVENT_HOURS,
-      sub: "Last entry 4pm",
+      sub: null,
     },
   ];
 

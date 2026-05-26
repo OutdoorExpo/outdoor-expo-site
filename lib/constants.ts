@@ -15,5 +15,5 @@ export const EVENT_DATES = "2–4 October 2026";
 export const EVENT_VENUE_SHORT = "Canterbury Agricultural Park";
 export const EVENT_VENUE_FULL = "Canterbury Agricultural Park, Christchurch";
 export const EVENT_LOCATION = "Christchurch";
-export const EVENT_HOURS = "9am – 5pm";
+export const EVENT_HOURS = "9am – 4pm";
 export const EVENT_START_DATETIME = "2026-10-02T09:00:00+13:00";

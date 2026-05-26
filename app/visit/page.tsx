@@ -79,7 +79,7 @@ function VisitHero() {
 /* ============== 2 · QUICK FACTS ============== */
 const FACTS = [
   { label: "Dates", value: "2–4 October 2026", sub: "Fri · Sat · Sun" },
-  { label: "Hours", value: "9am – 5pm daily", sub: "Last entry 4pm" },
+  { label: "Hours", value: "9am – 4pm daily", sub: null },
   { label: "Venue", value: "Canterbury Agricultural Park", sub: "Christchurch" },
   { label: "Parking", value: "Free on-site", sub: "3,000+ spaces" },
 ];
@@ -97,7 +97,9 @@ function QuickFacts() {
               <div className="font-heading text-h4 font-bold text-charcoal leading-tight">
                 {f.value}
               </div>
-              <div className="text-body-s text-mid-grey mt-1">{f.sub}</div>
+              {f.sub && (
+                <div className="text-body-s text-mid-grey mt-1">{f.sub}</div>
+              )}
             </div>
           ))}
         </div>
@@ -113,7 +115,7 @@ const TICKETS = [
     age: "18+",
     price: "$20",
     blurb:
-      "One full day of outdoor inspiration. Access all 13 zones, 300+ exhibitor stands, demos, and guest sessions.",
+      "One full day of outdoor inspiration. Access all 12 zones, 300+ exhibitor stands, demos, and guest sessions.",
   },
   {
     name: "Youth",
@@ -362,13 +364,13 @@ function WhatsOn() {
         <div className="container-prose">
           <Eyebrow variant="orange">What&apos;s On</Eyebrow>
           <h2 className="text-h1 font-extrabold text-white mb-3 mt-2">
-            13 zones.
+            12 Zones.
             <br />
             Three days to see them.
           </h2>
           <p className="text-body-l opacity-92 mb-5">
             From boating to bikes, 4×4 to family camping — 300+ brands across
-            13 themed zones. The full programme and demo schedule drops in
+            12 themed zones. The full programme and demo schedule drops in
             August.
           </p>
           <div className="flex flex-wrap gap-1 mb-5">

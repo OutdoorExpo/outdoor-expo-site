@@ -16,7 +16,7 @@ export function ZonesPreview() {
         <div className="container-prose">
           <Eyebrow variant="orange">Outdoor Expo 2026</Eyebrow>
           <h2 className="text-h1 font-extrabold text-white mb-3 mt-2">
-            13 zones.
+            12 Zones.
             <br />
             Bigger than ever.
           </h2>

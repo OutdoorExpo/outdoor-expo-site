@@ -56,7 +56,7 @@ export function Button({
   const classes = [
     "inline-flex items-center justify-center",
     "font-semibold uppercase tracking-[0.08em]",
-    "rounded-sm transition-all",
+    "rounded-full transition-all",
     "no-underline",
     variantClasses[variant],
     sizeClasses[size],

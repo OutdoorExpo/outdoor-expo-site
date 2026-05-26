@@ -26,9 +26,9 @@ export function DualCTA() {
       <div className="bg-charcoal text-white p-4 md:p-9 flex flex-col justify-center">
         <Eyebrow variant="orange">Want to exhibit?</Eyebrow>
         <h2 className="text-h2 font-bold text-white mb-3 mt-2">
-          Get in front of 20,000+
+          Get in front of thousands
           <br />
-          outdoor enthusiasts.
+          of excited outdoor enthusiasts.
         </h2>
         <p className="text-body opacity-92 mb-4 max-w-[420px]">
           NZ&apos;s largest outdoor expo. South Island&apos;s only.
