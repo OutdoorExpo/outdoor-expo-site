@@ -5,7 +5,7 @@ import exhibitors from "@/lib/exhibitors-2025.json";
 export const metadata = {
   title: "Exhibitors",
   description:
-    "The 2025 exhibitor line-up at Outdoor Expo. Many of these brands are already confirmed for 2026, with new exhibitors joining every week.",
+    "Outdoor Expo brings together camping, campervan, boating, outdoor gear, adventure, lifestyle, and specialist brands. See who's confirmed for 2026 and explore the 2025 line-up.",
 };
 
 type Exhibitor = {
@@ -21,11 +21,55 @@ type Exhibitor = {
 
 const data = exhibitors as Exhibitor[];
 
+/**
+ * Slugs (in display order) of exhibitors already confirmed for 2026.
+ * These are pulled to the top of the unified grid.
+ * The rest of the 2025 line-up follows in its original order.
+ * Update this list as new confirmations come in.
+ */
+const CONFIRMED_2026_SLUGS: string[] = [
+  "advanced-optics",
+  "bays-boating",
+  "black-sheep-trading",
+  "the-bush-baths",
+  "canterbury-vehicle-accessories",
+  "cjm-s-events-ltd",
+  "cmg-campers",
+  "cohesive-construction",
+  "ebikeznz",
+  "falcon-overland",
+  "hybrid-bikes",
+  "kaweka-outdoor-equipment",
+  "lifestyle-builds",
+  "lysaght-ltd",
+  "manchester-unity",
+  "mountain-high-clothing",
+  "night-owl-outdoor-gear",
+  "north-to-south-first-aid-supplies",
+  "osprey-boats-new-zealand",
+  "ponies2go",
+  "sports-marine",
+  "the-shed-specialists-co",
+  "white-pointer-boats",
+];
+
+const CONFIRMED_SET = new Set(CONFIRMED_2026_SLUGS);
+
+// Build a single ordered list: 2026-confirmed first (in spec order), then the
+// rest of the 2025 line-up in its original JSON order. Visually no distinction
+// between the two groups — they share the same card style and grid.
+const orderedExhibitors: Exhibitor[] = [
+  ...CONFIRMED_2026_SLUGS
+    .map((slug) => data.find((e) => e.slug === slug))
+    .filter((e): e is Exhibitor => Boolean(e)),
+  ...data.filter((e) => !CONFIRMED_SET.has(e.slug)),
+];
+
 export default function ExhibitorsPage() {
   return (
     <>
       <Hero />
-      <Grid />
+      <Grid items={orderedExhibitors} />
       <Newsletter />
     </>
   );
@@ -37,19 +81,21 @@ function Hero() {
     <section className="bg-paper section-content">
       <div className="container-site">
         <div className="container-prose">
-          <Eyebrow>2025 Line-up</Eyebrow>
+          <Eyebrow>The Line-up</Eyebrow>
           <h1 className="text-h1 font-extrabold text-charcoal mb-3 mt-2">
-            The brands you met in 2025.
+            Brands Kiwis love.
             <br />
-            Many are already back for 2026.
+            New ones you&apos;ll want to discover.
           </h1>
           <p className="text-body-l text-dark-grey mb-3">
-            Here&apos;s the full directory of exhibitors from Outdoor Expo
-            2025. Many of these brands have already confirmed their stand for
-            2026 — and new exhibitors are joining the line-up every week.
+            Outdoor Expo brings together a wide mix of camping, campervan,
+            boating, outdoor gear, adventure, lifestyle, and local specialist
+            brands. See who&apos;s already confirmed for 2026, and explore the
+            exhibitors who helped make the 2025 show such a great one.
           </p>
           <p className="text-body text-dark-grey">
-            <strong>Stay tuned.</strong> Follow us on{" "}
+            <strong>New exhibitors are joining the line-up regularly</strong> —
+            follow us on{" "}
             <a
               href="https://www.instagram.com/outdoorexponz"
               target="_blank"
@@ -67,8 +113,7 @@ function Hero() {
             >
               Facebook
             </a>{" "}
-            to be the first to hear about the 2026 line-up as it&apos;s
-            announced.
+            to be the first to hear who&apos;s next.
           </p>
         </div>
       </div>
@@ -77,12 +122,12 @@ function Hero() {
 }
 
 /* ============== GRID ============== */
-function Grid() {
+function Grid({ items }: { items: Exhibitor[] }) {
   return (
     <section className="bg-white section-content">
       <div className="container-site">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
-          {data.map((e) => (
+          {items.map((e) => (
             <Card key={e.slug} e={e} />
           ))}
         </div>

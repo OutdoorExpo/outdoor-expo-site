@@ -399,7 +399,7 @@ function WhatsOn() {
 const ACCESS = [
   {
     title: "Wheelchair access",
-    body: "Step-free access throughout. Flat, firm pathways between zones. Accessible toilets in all main blocks.",
+    body: "Step-free access throughout. Flat pathways between zones. Accessible toilets are available.",
   },
   {
     title: "Accessible parking",
@@ -410,8 +410,8 @@ const ACCESS = [
     body: "All dogs are welcome on a lead. Bring water and clean up after them — it's an outdoor venue with plenty of space to stretch.",
   },
   {
-    title: "Companion card",
-    body: "NZ Companion Card accepted — companion enters free with a card holder's ticket.",
+    title: "Carer entry",
+    body: "Bringing a support worker or carer? They enter at no charge with the person they're assisting — just let our entry team know on arrival. The Hāpai Access Card is recognised here too.",
   },
 ];
 
@@ -454,7 +454,7 @@ function Accessibility() {
 const FAMILY_ITEMS = [
   { strong: "Under-12s free", rest: "with a paying adult — no separate ticket needed" },
   { strong: "Stroller-friendly", rest: "wide aisles throughout" },
-  { strong: "Bounce castle", rest: "for the kids, near the food court" },
+  { strong: "Kids' amusements", rest: "near the food court — rides, a bounce castle, face painting and more" },
   { strong: "Family seating", rest: "in the food court" },
   { strong: "Lost child point", rest: "at the main info desk" },
 ];
@@ -512,7 +512,7 @@ function FamilySection() {
 const FAQS = [
   {
     q: "Can I re-enter on the same day?",
-    a: "Yes — keep your wristband on. You can come and go all day with a valid wristband.",
+    a: "Yes — just let our ticketing team know before you leave. They'll give you a wristband so you can come and go on the same day with your valid ticket.",
   },
   {
     q: "Are tickets refundable?",
@@ -520,15 +520,11 @@ const FAQS = [
   },
   {
     q: "Can I bring my dog?",
-    a: "Yes — all dogs are welcome, from certified assistance animals to the family pet. Keep them on a lead, bring water, pick up after them, and please be mindful of crowds and other dogs so everyone (and every pup) has a great day out.",
+    a: "Yes — dogs are welcome, from certified assistance animals to the family pet. Please keep them on a lead, bring water, pick up after them, and be mindful of crowds and other dogs so everyone has a great day out. You'll also find dog-friendly outdoor brands, including Arctic Sammy, helping Kiwis enjoy more adventures with their pups.",
   },
   {
     q: "Is photography allowed?",
     a: "Personal photography is welcome. Tag us on Instagram @outdoorexponz. Commercial filming requires advance media accreditation — contact us at least two weeks ahead.",
-  },
-  {
-    q: "Are there ATMs on-site?",
-    a: "Yes — two ATMs in the main entrance area. Most exhibitors accept EFTPOS and contactless. Cash is handy for food court vendors during peak times.",
   },
   {
     q: "What if it rains?",
@@ -536,7 +532,7 @@ const FAQS = [
   },
   {
     q: "Can I buy tickets at the door?",
-    a: "Yes, but advance tickets save you $5 and skip the queue. Door sales open at 8:30am daily.",
+    a: "Yes — door sales open at 9:00am daily, with cash and EFTPOS payments accepted. Online tickets are $5 cheaper, so booking ahead is the best way to save and skip the queue.",
   },
 ];
 
