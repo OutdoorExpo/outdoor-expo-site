@@ -42,6 +42,26 @@ export function Newsletter() {
               region={NEWSLETTER_FORM.region}
             />
           </div>
+
+          {/* Implied-consent notice — NZ Privacy Act compliant when paired
+              with Privacy Policy + Terms pages linked below. */}
+          <p className="text-body-s text-white/60 mt-4">
+            By subscribing you agree to our{" "}
+            <a
+              href="/privacy"
+              className="text-white/80 underline hover:text-white"
+            >
+              Privacy Policy
+            </a>{" "}
+            and{" "}
+            <a
+              href="/terms"
+              className="text-white/80 underline hover:text-white"
+            >
+              Terms &amp; Conditions
+            </a>
+            .
+          </p>
         </div>
       </div>
 
@@ -57,22 +77,37 @@ export function Newsletter() {
           border: none !important;
           padding: 0 !important;
         }
-        .newsletter-form .hs-form-field > label,
-        .newsletter-form .hs-form-field > label > span {
-          color: #ffffff !important;
-          opacity: 0.85;
-          font-size: 14px;
-          font-weight: 600;
+        /* Visually hide field labels (placeholder carries the meaning) —
+           still readable by screen readers for accessibility. */
+        .newsletter-form .hs-form-field > label {
+          position: absolute !important;
+          width: 1px !important;
+          height: 1px !important;
+          padding: 0 !important;
+          margin: -1px !important;
+          overflow: hidden !important;
+          clip: rect(0, 0, 0, 0) !important;
+          white-space: nowrap !important;
+          border: 0 !important;
+        }
+        /* Required-field red asterisk would also be hidden by sr-only above —
+           hide it explicitly too since asterisk in placeholder is unusual. */
+        .newsletter-form .hs-form-required {
+          display: none !important;
         }
         .newsletter-form .hs-input {
           width: 100% !important;
           height: 48px;
-          padding: 0 14px;
+          padding: 0 18px;
           font-size: 16px;
           color: #2c2a26;
           background: #ffffff;
           border: 1px solid rgba(255, 255, 255, 0.15);
           border-radius: 9999px;
+        }
+        .newsletter-form .hs-input::placeholder {
+          color: #6b6b6b;
+          opacity: 1;
         }
         .newsletter-form textarea.hs-input {
           height: auto;
