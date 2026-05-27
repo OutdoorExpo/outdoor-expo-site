@@ -22,7 +22,12 @@ import { trackEvent } from "@/lib/analytics";
  */
 const NEWSLETTER_FORM = {
   portalId: "44544113",
-  formId: "13b473b7-43f5-4370-bde4-0add6b1798ef",
+  // Replaced 2026-05-27: original form (13b473b7-43f5-4370-bde4-0add6b1798ef)
+  // returned 403 from HubSpot's embed endpoint on the new domain, blocking
+  // the form from rendering. The form was rebuilt with the same fields and
+  // a new ID — the rebuild inherits current HubSpot security defaults and
+  // works correctly from www.outdoorexpo.co.nz.
+  formId: "4c8498c7-cf87-422f-918f-b3d224722e24",
   region: "ap1",
 };
 
