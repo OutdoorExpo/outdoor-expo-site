@@ -1,7 +1,7 @@
 import { Eyebrow } from "@/components/Eyebrow";
 import { Button } from "@/components/Button";
+import { TicketCTA } from "@/components/TicketCTA";
 import { Newsletter } from "@/components/home/Newsletter";
-import { FLICKET_TICKETS_URL } from "@/lib/constants";
 
 export const metadata = {
   title: "About",
@@ -265,9 +265,9 @@ function CtaStrip() {
             Agricultural Park is the place to be.
           </p>
           <div className="flex flex-wrap gap-2 justify-center">
-            <Button href={FLICKET_TICKETS_URL} variant="primary" size="lg">
+            <TicketCTA variant="primary" size="lg" location="about_page">
               Get Tickets
-            </Button>
+            </TicketCTA>
             <Button href="/exhibit-with-us" variant="outline-charcoal" size="lg">
               Exhibit With Us
             </Button>

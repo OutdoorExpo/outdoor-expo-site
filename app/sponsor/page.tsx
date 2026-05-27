@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Eyebrow } from "@/components/Eyebrow";
 import { Button } from "@/components/Button";
 import { Newsletter } from "@/components/home/Newsletter";
-import { HubSpotForm } from "@/components/HubSpotForm";
+import { HubSpotFormWithTracking } from "@/components/HubSpotFormWithTracking";
 
 export const metadata = {
   title: "Sponsor",
@@ -605,10 +605,12 @@ function ApplicationForm() {
           </p>
         </div>
         <div className="max-w-prose mx-auto">
-          <HubSpotForm
+          <HubSpotFormWithTracking
             portalId="44544113"
             formId="58110572-7435-4206-aec2-8c89f7b8a61d"
             region="ap1"
+            eventName="sponsor_inquiry"
+            eventParams={{ form_location: "sponsor_page" }}
           />
         </div>
       </div>

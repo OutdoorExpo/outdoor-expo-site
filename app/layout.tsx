@@ -4,6 +4,7 @@ import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { BackToTop } from "@/components/BackToTop";
+import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 import {
   OrganizationSchema,
   EventSchema,
@@ -82,6 +83,7 @@ export default function RootLayout({
         <EventSchema />
       </head>
       <body>
+        <GoogleAnalytics />
         <Header />
         <main>{children}</main>
         <Footer />

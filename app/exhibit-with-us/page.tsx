@@ -1,7 +1,7 @@
 import { Eyebrow } from "@/components/Eyebrow";
 import { Button } from "@/components/Button";
 import { Newsletter } from "@/components/home/Newsletter";
-import { HubSpotForm } from "@/components/HubSpotForm";
+import { HubSpotFormWithTracking } from "@/components/HubSpotFormWithTracking";
 import { TestimonialSlider } from "@/components/TestimonialSlider";
 
 export const metadata = {
@@ -271,10 +271,12 @@ function ApplicationForm() {
           </p>
         </div>
         <div className="max-w-prose mx-auto">
-          <HubSpotForm
+          <HubSpotFormWithTracking
             portalId="44544113"
             formId="56c77ba0-3eb8-4c6a-8b24-33afced7b616"
             region="ap1"
+            eventName="exhibitor_form_submit"
+            eventParams={{ form_location: "exhibit_with_us_page" }}
           />
         </div>
       </div>

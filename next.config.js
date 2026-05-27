@@ -16,6 +16,11 @@ const nextConfig = {
       { source: "/blog", destination: "/news", permanent: true },
       { source: "/blog/:slug*", destination: "/news/:slug*", permanent: true },
 
+      // /2026-info — referenced by the Google Ads plan as the PMax asset
+      // group landing. Our equivalent is the Visit page (hours, parking,
+      // map, accessibility), so we route it there to keep the doc working.
+      { source: "/2026-info", destination: "/visit", permanent: true },
+
       /* =====================================================================
        * Wix → new site migration (301)
        *

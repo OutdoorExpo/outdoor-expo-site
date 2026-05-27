@@ -3,8 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { Logo } from "./Logo";
-import { Button } from "./Button";
-import { FLICKET_TICKETS_URL } from "@/lib/constants";
+import { TicketCTA } from "./TicketCTA";
 
 const navItems = [
   { href: "/visit", label: "Visit" },
@@ -43,13 +42,13 @@ export function Header() {
             {/* GET TICKETS — hidden on mobile (visible only at md and above)
                 Mobile users have a prominent GET TICKETS in the Hero already,
                 so we avoid duplication here. Tablet and desktop keep it. */}
-            <Button
-              href={FLICKET_TICKETS_URL}
+            <TicketCTA
               size="md"
+              location="header_desktop"
               className="hidden md:inline-flex !h-9 !px-5 !text-[12px]"
             >
               Get Tickets
-            </Button>
+            </TicketCTA>
             {/* Mobile hamburger — visible up to lg */}
             <button
               type="button"
@@ -97,9 +96,14 @@ export function Header() {
             ))}
           </nav>
           <div className="container-site pb-4">
-            <Button href={FLICKET_TICKETS_URL} variant="primary" size="lg" className="w-full">
+            <TicketCTA
+              variant="primary"
+              size="lg"
+              location="header_mobile_menu"
+              className="w-full"
+            >
               Get Tickets
-            </Button>
+            </TicketCTA>
           </div>
         </div>
       )}

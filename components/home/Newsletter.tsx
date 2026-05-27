@@ -1,6 +1,7 @@
 "use client";
 
 import { HubSpotForm } from "../HubSpotForm";
+import { trackEvent } from "@/lib/analytics";
 
 /**
  * Newsletter sign-up section ("Stay in the loop.")
@@ -47,6 +48,11 @@ export function Newsletter() {
                 portalId={NEWSLETTER_FORM.portalId}
                 formId={NEWSLETTER_FORM.formId}
                 region={NEWSLETTER_FORM.region}
+                onFormSubmitted={() =>
+                  trackEvent("newsletter_signup", {
+                    form_location: "newsletter_section",
+                  })
+                }
               />
             </div>
 

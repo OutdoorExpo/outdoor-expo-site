@@ -1,5 +1,6 @@
 import { Button } from "../Button";
-import { EVENT_DATES, EVENT_VENUE_FULL, FLICKET_TICKETS_URL } from "@/lib/constants";
+import { TicketCTA } from "../TicketCTA";
+import { EVENT_DATES, EVENT_VENUE_FULL } from "@/lib/constants";
 
 interface PostCTAProps {
   /** Headline for the CTA block. Default tied to current Outdoor Expo. */
@@ -25,9 +26,9 @@ export function PostCTA({
         <span>📅 {EVENT_DATES}</span>
       </div>
       <div className="flex flex-col md:flex-row gap-2 justify-center">
-        <Button href={FLICKET_TICKETS_URL} variant="primary">
+        <TicketCTA variant="primary" location="news_post_cta">
           Get Tickets
-        </Button>
+        </TicketCTA>
         <Button href="/exhibitors" variant="outline-white">
           View Exhibitors
         </Button>

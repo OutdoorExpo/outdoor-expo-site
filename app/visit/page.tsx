@@ -1,7 +1,7 @@
 import { Eyebrow } from "@/components/Eyebrow";
 import { Button } from "@/components/Button";
+import { TicketCTA } from "@/components/TicketCTA";
 import { Newsletter } from "@/components/home/Newsletter";
-import { FLICKET_TICKETS_URL } from "@/lib/constants";
 
 export const metadata = {
   title: "Plan Your Visit",
@@ -190,14 +190,14 @@ function Tickets() {
               <p className="text-body-s text-dark-grey flex-grow mb-3">
                 {t.blurb}
               </p>
-              <Button
-                href={FLICKET_TICKETS_URL}
+              <TicketCTA
                 variant={t.highlight ? "primary" : "outline-charcoal"}
                 size="md"
+                location={`visit_ticket_card_${t.label.toLowerCase().replace(/\s+/g, "_")}`}
                 className="w-full"
               >
                 {t.price === "Free" ? "Learn More" : "Get Tickets"}
-              </Button>
+              </TicketCTA>
             </div>
           ))}
         </div>

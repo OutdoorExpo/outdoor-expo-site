@@ -13,6 +13,13 @@ type Props = {
   portalId: string;
   formId: string;
   region: string;
+  /**
+   * Optional callback that fires when the HubSpot form is successfully
+   * submitted. Used to fire GA4 conversion events (newsletter_signup,
+   * exhibitor_form_submit, sponsor_inquiry) without coupling the form
+   * library to our analytics layer.
+   */
+  onFormSubmitted?: () => void;
 };
 
 let scriptPromise: Promise<void> | null = null;
@@ -35,7 +42,12 @@ function loadHubSpotScript(): Promise<void> {
   return scriptPromise;
 }
 
-export function HubSpotForm({ portalId, formId, region }: Props) {
+export function HubSpotForm({
+  portalId,
+  formId,
+  region,
+  onFormSubmitted,
+}: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
   const targetId = `hs-form-${formId}`;
 
@@ -64,6 +76,36 @@ export function HubSpotForm({ portalId, formId, region }: Props) {
       cancelled = true;
     };
   }, [portalId, formId, region, targetId]);
+
+  /**
+   * Listen for HubSpot's postMessage events. HubSpot sends
+   * { type: "hsFormCallback", eventName: "onFormSubmitted", id: formId }
+   * to window when a submission succeeds. We filter by formId so a
+   * Newsletter form on a page that also has a Sponsor form doesn't fire
+   * both callbacks for one submission.
+   *
+   * Note: HubSpot also emits "onFormReady" and "onBeforeFormSubmit"
+   * (different eventNames). We deliberately only listen for
+   * "onFormSubmitted" because that's the success signal.
+   */
+  useEffect(() => {
+    if (!onFormSubmitted) return;
+    function handleMessage(event: MessageEvent) {
+      const data = event.data as
+        | { type?: string; eventName?: string; id?: string }
+        | undefined;
+      if (
+        data &&
+        data.type === "hsFormCallback" &&
+        data.eventName === "onFormSubmitted" &&
+        data.id === formId
+      ) {
+        onFormSubmitted?.();
+      }
+    }
+    window.addEventListener("message", handleMessage);
+    return () => window.removeEventListener("message", handleMessage);
+  }, [formId, onFormSubmitted]);
 
   return (
     <div className="bg-white rounded-lg p-3 md:p-6 border border-light-grey">

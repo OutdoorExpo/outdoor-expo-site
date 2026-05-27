@@ -1,5 +1,4 @@
-import { Button } from "../Button";
-import { FLICKET_TICKETS_URL } from "@/lib/constants";
+import { TicketCTA } from "../TicketCTA";
 
 /**
  * Hero — background video with text overlay.
@@ -50,9 +49,9 @@ export function Hero() {
           <p className="text-body-l text-white opacity-95 mb-5 max-w-[560px]">
             Christchurch · 2–4 October 2026
           </p>
-          <Button href={FLICKET_TICKETS_URL} variant="primary" size="lg">
+          <TicketCTA variant="primary" size="lg" location="home_hero">
             Get Tickets
-          </Button>
+          </TicketCTA>
         </div>
       </div>
     </section>
