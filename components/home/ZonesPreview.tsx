@@ -25,10 +25,13 @@ export function ZonesPreview() {
             line-up is coming soon. Get a feel for the scale with last year&apos;s guide.
           </p>
           <div className="flex flex-col md:flex-row gap-2">
-            <Button href="/register-interest" variant="primary">
-              Register Your Interest
+            <Button href="/tickets" variant="primary">
+              Get Tickets
             </Button>
-            <Button href="/downloads/2025-programme.pdf" variant="outline-white">
+            <Button
+              href="https://44544113.fs1.hubspotusercontent-ap1.net/hubfs/44544113/Outdoor%20Expo%202025%20Visitor%20Guide.pdf"
+              variant="outline-white"
+            >
               View 2025 Programme (PDF)
             </Button>
           </div>

@@ -1,8 +1,8 @@
 "use client";
 
 import Script from "next/script";
-import { usePathname, useSearchParams } from "next/navigation";
-import { Suspense, useEffect } from "react";
+import { usePathname } from "next/navigation";
+import { useEffect } from "react";
 import { GA_MEASUREMENT_ID } from "@/lib/analytics";
 
 /**
@@ -11,10 +11,17 @@ import { GA_MEASUREMENT_ID } from "@/lib/analytics";
  * Why this lives in its own component:
  *   - Next.js App Router doesn't fire a full browser page load on
  *     internal navigation (e.g. clicking a <Link>), so the default
- *     gtag config never sees the new URL. We disable auto page_view
- *     in the config and fire it ourselves in RouteChangeTracker.
- *   - useSearchParams() requires a Suspense boundary in App Router,
- *     so the route tracker is wrapped accordingly.
+ *     gtag config never sees the new URL. We disable the inline-script
+ *     auto page_view and fire it ourselves on pathname change.
+ *
+ * We deliberately don't read useSearchParams() here:
+ *   - It would require wrapping the component in a Suspense boundary
+ *   - That boundary has triggered React hydration warnings (#418/#423/
+ *     #425) in this codebase
+ *   - For event tracking, page_path without query-string params is the
+ *     pragmatic trade-off — query strings rarely change what content
+ *     the user is looking at, and we keep the search params via
+ *     page_location anyway.
  *
  * Where this is wired in:
  *   app/layout.tsx — placed once in <body> so it renders on every page.
@@ -22,19 +29,16 @@ import { GA_MEASUREMENT_ID } from "@/lib/analytics";
 
 function RouteChangeTracker() {
   const pathname = usePathname();
-  const searchParams = useSearchParams();
 
   useEffect(() => {
     if (typeof window === "undefined") return;
     if (typeof window.gtag !== "function") return;
-    const search = searchParams?.toString() || "";
-    const url = pathname + (search ? `?${search}` : "");
     window.gtag("event", "page_view", {
-      page_path: url,
+      page_path: pathname,
       page_location: window.location.href,
       page_title: document.title,
     });
-  }, [pathname, searchParams]);
+  }, [pathname]);
 
   return null;
 }
@@ -57,9 +61,7 @@ export function GoogleAnalytics() {
           });
         `}
       </Script>
-      <Suspense fallback={null}>
-        <RouteChangeTracker />
-      </Suspense>
+      <RouteChangeTracker />
     </>
   );
 }
