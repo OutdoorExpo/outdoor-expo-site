@@ -10,7 +10,13 @@
  * URL path segment and as the JSON lookup key.
  */
 export const CONFIRMED_2026_SLUGS: string[] = [
+  // Slugs are listed alphabetically by display name (ignoring leading "the-").
+  // The "christchurch-mini-garage" slug looks odd because the Wix import
+  // preserved the company's previous name — the actual brand is "Actions
+  // Power & Water Sports", which is why it sorts first.
+  "christchurch-mini-garage",
   "advanced-optics",
+  "arctic-sammy",
   "bays-boating",
   "black-sheep-trading",
   "the-bush-baths",
@@ -30,6 +36,8 @@ export const CONFIRMED_2026_SLUGS: string[] = [
   "north-to-south-first-aid-supplies",
   "osprey-boats-new-zealand",
   "ponies2go",
+  "pulsar",
+  "pure-salt",
   "sports-marine",
   "the-shed-specialists-co",
   "white-pointer-boats",

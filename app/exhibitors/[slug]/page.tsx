@@ -173,10 +173,17 @@ function Hero({
               )}
             </div>
 
-            <p className="text-body text-dark-grey">
-              See {exhibitor.name} at <strong>Outdoor Expo 2026</strong> —{" "}
-              {EVENT_DATES}, {EVENT_VENUE_SHORT}, Christchurch.
-            </p>
+            {/* Show the 2026 commitment line ONLY for exhibitors confirmed
+                for the 2026 line-up. For 2025-only exhibitors, we don't
+                imply they'll be at the next event — that would be a false
+                promise. The eyebrow above already labels which group the
+                page belongs to. */}
+            {isConfirmed2026 && (
+              <p className="text-body text-dark-grey">
+                See {exhibitor.name} at <strong>Outdoor Expo 2026</strong> —{" "}
+                {EVENT_DATES}, {EVENT_VENUE_SHORT}, Christchurch.
+              </p>
+            )}
           </div>
         </div>
       </div>

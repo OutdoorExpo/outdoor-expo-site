@@ -1,22 +1,27 @@
 import { readFileSync } from "fs";
 import path from "path";
+import Link from "next/link";
 import { Button } from "../Button";
 import { Eyebrow } from "../Eyebrow";
 
-// Order: 1, 3, 10 first (highest priority), then the rest in random order.
+// 12 returning brands, displayed left-to-right in the home Line-up grid.
+// Each `slug` must match an entry in lib/exhibitors-2025.json — that's what
+// gives us a working /exhibitors/<slug> detail page to link to. A few of the
+// slugs look odd (e.g. "christchurch-mini-garage" → Actions Power & Water
+// Sports) because they were carried over verbatim from the Wix import.
 const LOGOS = [
-  { file: "pulsar.svg", name: "Pulsar" },
-  { file: "black-sheep-trading.svg", name: "Black Sheep Trading" },
-  { file: "cmg-campers.svg", name: "CMG Campers" },
-  { file: "action-power-water-sports.svg", name: "Action Power & Water Sports" },
-  { file: "mountain-high.svg", name: "Mountain High Clothing" },
-  { file: "pure-salt.svg", name: "Pure Salt" },
-  { file: "canterbury-vehicle-accessories.svg", name: "Canterbury Vehicle Accessories" },
-  { file: "arctic-sammy.svg", name: "Arctic Sammy" },
-  { file: "bush-bath.svg", name: "Bush Bath" },
-  { file: "white-pointer-boats.svg", name: "White Pointer Boats" },
-  { file: "kaweka.svg", name: "Kaweka Outdoor Equipment" },
-  { file: "hybrid-bikes.svg", name: "Hybrid Bikes" },
+  { file: "pulsar.svg", name: "Pulsar", slug: "pulsar" },
+  { file: "black-sheep-trading.svg", name: "Black Sheep Trading", slug: "black-sheep-trading" },
+  { file: "cmg-campers.svg", name: "CMG Campers", slug: "cmg-campers" },
+  { file: "action-power-water-sports.svg", name: "Action Power & Water Sports", slug: "christchurch-mini-garage" },
+  { file: "mountain-high.svg", name: "Mountain High Clothing", slug: "mountain-high-clothing" },
+  { file: "pure-salt.svg", name: "Pure Salt", slug: "pure-salt" },
+  { file: "canterbury-vehicle-accessories.svg", name: "Canterbury Vehicle Accessories", slug: "canterbury-vehicle-accessories" },
+  { file: "arctic-sammy.svg", name: "Arctic Sammy", slug: "arctic-sammy" },
+  { file: "bush-bath.svg", name: "Bush Bath", slug: "the-bush-baths" },
+  { file: "white-pointer-boats.svg", name: "White Pointer Boats", slug: "white-pointer-boats" },
+  { file: "kaweka.svg", name: "Kaweka Outdoor Equipment", slug: "kaweka-outdoor-equipment" },
+  { file: "hybrid-bikes.svg", name: "Hybrid Bikes", slug: "hybrid-bikes" },
 ];
 
 /**
@@ -64,8 +69,10 @@ export function ReturningExhibitors() {
         </div>
         <div className="grid grid-cols-2 md:grid-cols-6 gap-2 md:gap-3 mb-7">
           {logos.map((logo) => (
-            <div
+            <Link
               key={logo.file}
+              href={`/exhibitors/${logo.slug}`}
+              aria-label={`${logo.name} — view exhibitor details`}
               className="bg-sand aspect-[4/3] flex items-center justify-center rounded p-2 hover:bg-green-50 transition-colors"
             >
               <div
@@ -74,7 +81,7 @@ export function ReturningExhibitors() {
                 className="w-full h-full flex items-center justify-center [&>svg]:w-full [&>svg]:h-full [&>svg]:max-w-full [&>svg]:max-h-full"
                 dangerouslySetInnerHTML={{ __html: logo.svg }}
               />
-            </div>
+            </Link>
           ))}
         </div>
         <div className="flex flex-col md:flex-row gap-2 justify-center items-center">
