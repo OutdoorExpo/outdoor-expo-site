@@ -51,19 +51,19 @@ export default function ExhibitorTermsPage() {
         3.1. The Exhibitor shall be liable for payments (including all taxes) as stipulated in the Trade Prospectus and/or these Terms.
       </p>
       <p>
-        3.2. All Site fees must be paid in full no later than 12th September 2025 to fully confirm a Site. If full Site fees are not received from the Exhibitor by this due date the Board may offer the Site to another Exhibitor.
+        3.2. All Site fees must be paid in full no later than 12th September 2026 to fully confirm a Site. If full Site fees are not received from the Exhibitor by this due date the Board may offer the Site to another Exhibitor.
       </p>
 
       <h2>4. Show Days</h2>
-      <p>4.1. The Show will be open to the public from 9am to 4pm on both Saturday 4th and Sunday 5th October 2025.</p>
+      <p>4.1. The Show will be open to the public from 9am to 4pm on Friday 2nd to Sunday 4th October 2026.</p>
       <p>
-        4.2. Exhibitors must have their Sites fully operational during these advertised public opening hours of the Show. Exhibitors must have personnel in attendance between the hours 8:30am to 4:30pm Saturday and Sunday. No Exhibitor&rsquo;s display to be removed from the Showgrounds until after 4:30pm Sunday in view of safety.
+        4.2. Exhibitors must have their Sites fully operational during these advertised public opening hours of the Show. Exhibitors must have personnel in attendance between the hours 8:30am to 4:30pm Friday to Sunday. No Exhibitor&rsquo;s display to be removed from the Showgrounds until after 4:30pm Sunday in view of safety.
       </p>
       <p>
         4.3. Exhibitors acknowledge that public safety is of paramount importance and will ensure all care is taken while setting up and dismantling their Site.
       </p>
       <p>
-        4.4. Restocking of Sites can only be done from 4:30pm to 8:00pm on Saturday evening and before 8:30am on Sunday morning.
+        4.4. Restocking of Sites can only be done from 4:30pm to 8:00pm on Friday or Saturday evening and before 8:30am on Sunday morning.
       </p>
 
       <h2>5. Exhibits</h2>
@@ -74,9 +74,9 @@ export default function ExhibitorTermsPage() {
         5.2. Exhibitors must display their company name and Site number (minimum size A4), in plain view for identification purposes.
       </p>
       <p>
-        5.3. The showgrounds will be marked out the week preceding the show and exhibitors will be able to set up from Thursday 2nd October or by prior arrangement with the Show.
+        5.3. The showgrounds will be marked out the week preceding the show and exhibitors will be able to set up from Wednesday 30th September or by prior arrangement with the Show.
       </p>
-      <p>5.4. All sites must be set up and fully operational by 8:30am Saturday 4th October 2025.</p>
+      <p>5.4. All sites must be set up and fully operational by 8:30am Friday 2nd October 2026.</p>
       <p>
         5.5. All Sites will be measured using the Board&rsquo;s measuring wheel. This measuring wheel will be the official measurement tool for the Sites.
       </p>
@@ -152,7 +152,7 @@ export default function ExhibitorTermsPage() {
         10.3. Vehicles must not block access ways at any time. Any vehicle the Board deems blocking an access way may get towed at the Exhibitor&rsquo;s risk and expense.
       </p>
       <p>
-        10.4. The Showgrounds will be patrolled by P4G security guards 24/7 during the event on Thursday, Friday, Saturday, Sunday and until 8am on Monday.
+        10.4. The Showgrounds will be patrolled by P4G security guards 24/7 during the event on Wednesday, Thursday, Friday, Saturday, Sunday and until 8am on Monday.
       </p>
 
       <h2>11. Exhibitor Admission</h2>
@@ -285,8 +285,8 @@ export default function ExhibitorTermsPage() {
       <h2>20. Exhibitor Cancellation</h2>
       <p>20.1. If an Exhibitor should cancel or terminate a Site booking:</p>
       <ul>
-        <li>prior to 1 August 2025, any refund shall be at the Board&rsquo;s discretion, notwithstanding that a portion shall be retained to repay expenses/costs;</li>
-        <li>on or after 1 August 2025, the Board will retain all monies received and reserves the right to pursue any further payments.</li>
+        <li>prior to 1 August 2026, any refund shall be at the Board&rsquo;s discretion, notwithstanding that a portion shall be retained to repay expenses/costs;</li>
+        <li>on or after 1 August 2026, the Board will retain all monies received and reserves the right to pursue any further payments.</li>
       </ul>
 
       <h2>21. No Representation and Limit of Liability</h2>
