@@ -172,7 +172,7 @@ function WhySponsor() {
             largest outdoor expo.
           </h2>
           <p className="text-body-l text-dark-grey">
-            More than 200 exhibitors across automotive, caravans, motorsports,
+            More than 300 exhibitors across automotive, caravans, motorsports,
             cycling, boating, outdoor living, apparel, tourism, and artisanal
             goods — and a diverse national audience ready to engage.
           </p>
@@ -192,6 +192,14 @@ function WhySponsor() {
               <p className="text-body text-dark-grey">{r.body}</p>
             </div>
           ))}
+        </div>
+        <div className="flex flex-wrap gap-2 justify-center mt-8 md:mt-10">
+          <Button href={SPONSOR_PROSPECTUS_URL} variant="primary" size="lg">
+            Download Sponsor Prospectus
+          </Button>
+          <Button href="#apply" variant="outline-charcoal" size="lg">
+            Talk to Us
+          </Button>
         </div>
       </div>
     </section>
@@ -268,6 +276,11 @@ function Audience() {
             </article>
           ))}
         </div>
+        <div className="flex flex-wrap gap-2 justify-center mt-8 md:mt-10">
+          <Button href="#apply" variant="primary" size="lg">
+            Talk to Our Team
+          </Button>
+        </div>
       </div>
     </section>
   );
@@ -325,6 +338,7 @@ function MarketingReach() {
 /* ============== 6 · ZONES ============== */
 const ZONES = [
   "Caravans & Motorhomes",
+  "Vehicles & Motorbikes",
   "4×4 & Overlanding",
   "Boating & Marine",
   "Cycling & E-Bikes",
@@ -335,8 +349,6 @@ const ZONES = [
   "Tourism & Travel",
   "Food & Beverage",
   "Artisanal Goods",
-  "Health & Wellness",
-  "Tech & Gadgets",
 ];
 
 function Zones() {
@@ -551,6 +563,14 @@ function Process() {
             </li>
           ))}
         </ol>
+        <div className="flex flex-wrap gap-2 justify-center mt-8 md:mt-10">
+          <Button href="#apply" variant="primary" size="lg">
+            Start Your Application
+          </Button>
+          <Button href={SPONSOR_PROSPECTUS_URL} variant="outline-charcoal" size="lg">
+            Download Prospectus
+          </Button>
+        </div>
       </div>
     </section>
   );
