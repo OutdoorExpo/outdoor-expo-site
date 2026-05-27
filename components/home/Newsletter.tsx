@@ -159,10 +159,10 @@ export function Newsletter() {
            the input fields (was inline-block, ~130px wide, which left a
            large empty space to the right and made the form look
            left-skewed). Full-width also bumps tap target — Apple HIG.
-           Note the `section` prefix on each selector: it's there to match
-           the specificity of the base button rules below — without it
-           those `!important` declarations would still win at desktop
-           specificity. */
+           Note the section prefix on each selector below: it is there
+           to match the specificity of the base button rules further
+           down — without it those !important declarations would still
+           win at desktop specificity. */
         @media (max-width: 767px) {
           section .newsletter-form .hs-button,
           section .newsletter-form input.hs-button,
