@@ -155,24 +155,11 @@ export function Newsletter() {
           margin-top: 6px !important;
           text-align: center !important;
         }
-        /* MOBILE — make submit button full-width so it visually matches
-           the input fields (was inline-block, ~130px wide, which left a
-           large empty space to the right and made the form look
-           left-skewed). Full-width also bumps tap target — Apple HIG.
-           Note the section prefix on each selector below: it is there
-           to match the specificity of the base button rules further
-           down — without it those !important declarations would still
-           win at desktop specificity. */
-        @media (max-width: 767px) {
-          section .newsletter-form .hs-button,
-          section .newsletter-form input.hs-button,
-          section .newsletter-form input[type="submit"],
-          section .newsletter-form .hs-form input.hs-button.primary {
-            width: 100% !important;
-            min-width: 0 !important;
-            display: block !important;
-          }
-        }
+        /* Mobile submit-button override moved to the end of this style
+           block — see the @media (max-width: 767px) rules at the bottom.
+           Source order matters: the base button rules below set
+           inline-block + 130px min-width, so the mobile override has to
+           appear AFTER them to win at equal specificity. */
 
         /* DESKTOP/TABLET: all 4 elements on one horizontal row */
         @media (min-width: 768px) {
@@ -292,6 +279,38 @@ export function Newsletter() {
           font-size: 14px;
           text-align: center;
           padding: 8px 0;
+        }
+
+        /* =============================================================
+           MOBILE LAYOUT OVERRIDES — MUST stay at the bottom.
+           CSS source order rule: when two rules share specificity and
+           both use !important, the later declaration wins. The base
+           "section .newsletter-form .hs-button" rule above forces
+           inline-block + 130px min-width. To make the submit button
+           stretch full-width on mobile (matching the input fields and
+           eliminating the right-aligned look the user reported), we
+           override AFTER those base rules.
+           ============================================================= */
+        @media (max-width: 767px) {
+          /* Parent wrapper: stretch full width and don't center button
+             via text-align since we are making the button block-level. */
+          .newsletter-form .hs-submit,
+          .newsletter-form .actions {
+            display: block !important;
+            width: 100% !important;
+            text-align: left !important;
+            margin-top: 6px !important;
+          }
+          /* Button itself: block-level, full width of the wrapper. */
+          section .newsletter-form .hs-button,
+          section .newsletter-form input.hs-button,
+          section .newsletter-form input[type="submit"],
+          section .newsletter-form .hs-form input.hs-button.primary {
+            display: block !important;
+            width: 100% !important;
+            min-width: 0 !important;
+            margin: 0 !important;
+          }
         }
       `}</style>
     </section>
