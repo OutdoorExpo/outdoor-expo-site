@@ -83,8 +83,9 @@ function OurStory() {
             </p>
             <p className="text-body text-dark-grey">
               Since then, the expo has grown into New Zealand&apos;s largest
-              celebration of outdoor life. We&apos;ve welcomed thousands of
-              adventurers — from families taking their first tramp to seasoned
+              celebration of outdoor life — expanding from a 30,000 sqm site
+              to around 130,000 sqm today. We&apos;ve welcomed thousands of
+              adventurers, from families taking their first tramp to seasoned
               explorers searching for the latest gear — all united by a
               passion for fresh air, open spaces, and unforgettable journeys.
             </p>
@@ -111,8 +112,8 @@ const BELIEFS = [
     body: "Tents, boats, 4WDs — they’re the means, not the end. We’re here to inspire people to step outside routine and find new passions.",
   },
   {
-    title: "Aotearoa is the backdrop.",
-    body: "There’s nowhere else like New Zealand for outdoor life. We celebrate every corner — the alpine, the coast, the river, the bush.",
+    title: "New Zealand is the backdrop.",
+    body: "Nowhere else offers this kind of outdoor life. We celebrate every corner — the alpine, the coast, the river, the bush.",
   },
   {
     title: "Community is the engine.",
