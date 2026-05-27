@@ -20,13 +20,13 @@ const NEWSLETTER_FORM = {
 
 export function Newsletter() {
   return (
-    <section className="bg-charcoal text-white py-10 md:py-14 text-center">
+    <section className="bg-charcoal text-white py-8 md:py-10 text-center">
       <div className="container-site">
         <div className="max-w-[520px] mx-auto">
-          <h2 className="text-h2 md:text-h1 font-extrabold text-white mb-2">
+          <h2 className="text-h2 font-extrabold text-white mb-2">
             Stay in the loop.
           </h2>
-          <p className="text-body opacity-85 mb-5 md:mb-6">
+          <p className="text-body opacity-85 mb-4">
             Early-bird ticket alerts, zone announcements, and exhibitor news —
             direct to your inbox.
           </p>
@@ -62,23 +62,43 @@ export function Newsletter() {
         compresses spacing so the section is as short as possible.
       */}
       <style jsx global>{`
-        /* Reset HubSpot's wrapper card */
+        /* Reset HubSpot's wrapper card + remove any margins it adds */
         .newsletter-form,
         .newsletter-form > div,
+        .newsletter-form form,
         .newsletter-form .hs-form,
-        .newsletter-form .hs-form-private {
+        .newsletter-form .hs-form-private,
+        .newsletter-form fieldset {
           background: transparent !important;
           border: none !important;
           padding: 0 !important;
           margin: 0 !important;
+          max-width: 100% !important;
         }
 
-        /* Hide ALL labels — aggressive, targets every variant HubSpot uses */
-        .newsletter-form label,
-        .newsletter-form .hs-form-field > label,
-        .newsletter-form .hs-fieldtype-text > label,
-        .newsletter-form .hs-form-required {
+        /*
+          Hide ALL labels aggressively — HubSpot has multiple label
+          rendering variants depending on form version. We hide ALL of them
+          using maximum specificity + multiple selectors + multiple
+          CSS hide techniques so at least one wins the cascade fight.
+        */
+        section .newsletter-form label,
+        section .newsletter-form form label,
+        section .newsletter-form .hs-form label,
+        section .newsletter-form .hs-form-field label,
+        section .newsletter-form .hs-fieldtype-text > label,
+        section .newsletter-form .field > label,
+        section .newsletter-form [class*="hs-fieldlabel"],
+        section .newsletter-form [class*="field-label"],
+        section .newsletter-form .hs-form-required {
           display: none !important;
+          visibility: hidden !important;
+          height: 0 !important;
+          width: 0 !important;
+          margin: 0 !important;
+          padding: 0 !important;
+          position: absolute !important;
+          left: -9999px !important;
         }
 
         /* Compact field spacing */
@@ -135,31 +155,40 @@ export function Newsletter() {
           }
         }
 
-        /* Submit button — orange pill, centered, fixed width */
+        /* Submit button — orange pill, centered, fixed width.
+           Extra-specific selectors to beat HubSpot's brand-coloured CSS. */
         .newsletter-form .hs-submit,
         .newsletter-form .actions {
           margin-top: 10px !important;
           text-align: center;
         }
-        .newsletter-form .hs-button {
+        section .newsletter-form .hs-button,
+        section .newsletter-form input.hs-button,
+        section .newsletter-form input[type="submit"],
+        section .newsletter-form .hs-form input.hs-button.primary {
           display: inline-block !important;
           width: auto !important;
-          min-width: 200px;
-          height: 44px;
-          padding: 0 28px;
+          min-width: 200px !important;
+          height: 44px !important;
+          padding: 0 28px !important;
+          background-color: #f97316 !important;
           background: #f97316 !important;
+          background-image: none !important;
           color: #ffffff !important;
-          font-family: inherit;
-          font-size: 13px;
-          font-weight: 700;
-          text-transform: uppercase;
-          letter-spacing: 0.08em;
+          font-family: inherit !important;
+          font-size: 13px !important;
+          font-weight: 700 !important;
+          text-transform: uppercase !important;
+          letter-spacing: 0.08em !important;
           border: none !important;
           border-radius: 9999px !important;
-          cursor: pointer;
-          transition: background 0.15s ease;
+          cursor: pointer !important;
+          transition: background 0.15s ease !important;
+          box-shadow: none !important;
         }
-        .newsletter-form .hs-button:hover {
+        section .newsletter-form .hs-button:hover,
+        section .newsletter-form input[type="submit"]:hover {
+          background-color: #ea580c !important;
           background: #ea580c !important;
         }
 
