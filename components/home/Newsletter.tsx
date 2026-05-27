@@ -148,10 +148,30 @@ export function Newsletter() {
         .newsletter-form .form-columns-1 + .actions {
           margin-top: 6px !important;
         }
-        /* Gap before submit button (mobile only) */
+        /* MOBILE — tighter gap before submit button (was 8px, now 6px to
+           match the field-to-field spacing above) */
         .newsletter-form .hs-submit,
         .newsletter-form .actions {
-          margin-top: 8px !important;
+          margin-top: 6px !important;
+          text-align: center !important;
+        }
+        /* MOBILE — make submit button full-width so it visually matches
+           the input fields (was inline-block, ~130px wide, which left a
+           large empty space to the right and made the form look
+           left-skewed). Full-width also bumps tap target — Apple HIG.
+           Note the `section` prefix on each selector: it's there to match
+           the specificity of the base button rules below — without it
+           those `!important` declarations would still win at desktop
+           specificity. */
+        @media (max-width: 767px) {
+          section .newsletter-form .hs-button,
+          section .newsletter-form input.hs-button,
+          section .newsletter-form input[type="submit"],
+          section .newsletter-form .hs-form input.hs-button.primary {
+            width: 100% !important;
+            min-width: 0 !important;
+            display: block !important;
+          }
         }
 
         /* DESKTOP/TABLET: all 4 elements on one horizontal row */

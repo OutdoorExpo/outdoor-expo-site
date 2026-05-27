@@ -135,7 +135,11 @@ export function Footer() {
           ))}
         </div>
         <div className="border-t border-white/10 pt-3 flex flex-col md:flex-row justify-between items-start md:items-center text-eyebrow gap-2">
-          <div className="opacity-60">© {new Date().getFullYear()} Outdoor Expo. All rights reserved.</div>
+          {/* Hardcoded year — `new Date().getFullYear()` in render would
+              cause a hydration mismatch around midnight on Dec 31 when
+              the server and client roll over at slightly different times.
+              Update this manually each January. */}
+          <div className="opacity-60">© 2026 Outdoor Expo. All rights reserved.</div>
           <div className="flex flex-wrap gap-3">
             <Link href="/privacy" className="opacity-60 hover:opacity-100">
               Privacy Policy

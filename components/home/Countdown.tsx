@@ -15,12 +15,32 @@ function calc() {
 }
 
 export function Countdown() {
-  const [time, setTime] = useState(calc);
+  // IMPORTANT — do NOT call calc() in useState's initializer.
+  //
+  // useState(calc) is lazy initialization: the function runs once when the
+  // component mounts. On the server during SSR, that's one Date.now()
+  // value; during client hydration, it's a different value. The resulting
+  // HTML mismatch triggers React hydration errors (#418/#423/#425).
+  //
+  // Instead, server and initial client render both show null (placeholder
+  // dashes). Once the client mounts, useEffect fills in the real numbers.
+  const [time, setTime] = useState<{
+    days: number;
+    hours: number;
+    minutes: number;
+  } | null>(null);
 
   useEffect(() => {
+    // First update fires immediately on mount so users see real values
+    // within a frame or two of hydration.
+    setTime(calc());
     const id = setInterval(() => setTime(calc()), 60_000);
     return () => clearInterval(id);
   }, []);
+
+  const days = time ? time.days : "—";
+  const hours = time ? time.hours : "—";
+  const minutes = time ? String(time.minutes).padStart(2, "0") : "—";
 
   return (
     <section className="bg-orange-500 text-white section-compact text-center">
@@ -29,11 +49,11 @@ export function Countdown() {
           Gates open in
         </div>
         <div className="flex justify-center items-center gap-3 md:gap-6 font-heading">
-          <Unit value={time.days} label="Days" />
+          <Unit value={days} label="Days" />
           <span className="text-[40px] md:text-[48px] opacity-40 font-light">·</span>
-          <Unit value={time.hours} label="Hours" />
+          <Unit value={hours} label="Hours" />
           <span className="text-[40px] md:text-[48px] opacity-40 font-light">·</span>
-          <Unit value={String(time.minutes).padStart(2, "0")} label="Minutes" />
+          <Unit value={minutes} label="Minutes" />
         </div>
       </div>
     </section>
