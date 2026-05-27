@@ -6,7 +6,7 @@ interface PostIntroProps {
 }
 
 /**
- * Opening block of a blog post — eyebrow tag + italic hook line.
+ * Opening block of a news post — eyebrow tag + italic hook line.
  * Sits at the top of the article body.
  */
 export function PostIntro({ tag, children }: PostIntroProps) {

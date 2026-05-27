@@ -1,13 +1,14 @@
-import type { BlogPostMeta } from "@/lib/blog/types";
+import type { NewsPostMeta } from "@/lib/news/types";
 import { formatPublishDate } from "./formatDate";
+import { TypeBadge } from "./TypeBadge";
 
 interface PostHeroProps {
-  post: BlogPostMeta;
+  post: NewsPostMeta;
 }
 
 /**
  * Full-bleed hero image with gradient overlay + category tag + title.
- * Used at the top of every individual blog post page.
+ * Used at the top of every individual news post page.
  */
 export function PostHero({ post }: PostHeroProps) {
   return (
@@ -32,9 +33,12 @@ export function PostHero({ post }: PostHeroProps) {
       <div className="absolute inset-0 flex items-end">
         <div className="container-site pb-8 md:pb-10">
           <div className="max-w-[760px]">
-            <span className="inline-block bg-orange-500 text-white text-eyebrow uppercase tracking-[0.1em] font-bold px-3 py-1 rounded-sm mb-3">
-              {post.category}
-            </span>
+            <div className="flex flex-wrap items-center gap-2 mb-3">
+              <TypeBadge type={post.type} size="md" />
+              <span className="text-eyebrow uppercase tracking-[0.1em] font-semibold text-white/85">
+                {post.category}
+              </span>
+            </div>
             <h1 className="text-h1 font-extrabold text-white mb-3 leading-tight">
               {post.title}
             </h1>

@@ -8,7 +8,7 @@ interface PostFigureProps {
 
 /**
  * A single inline photo with optional caption.
- * Used between paragraphs in blog post bodies.
+ * Used between paragraphs in news post bodies.
  */
 export function PostFigure({
   src,

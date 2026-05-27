@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getPostBySlug } from "@/lib/blog/posts";
-import { PostHero } from "@/components/blog/PostHero";
-import { PostBody } from "@/components/blog/PostBody";
-import { PostIntro } from "@/components/blog/PostIntro";
-import { PostFigure } from "@/components/blog/PostFigure";
-import { PostGrid } from "@/components/blog/PostGrid";
-import { PostChecklist } from "@/components/blog/PostChecklist";
-import { PostQuote } from "@/components/blog/PostQuote";
-import { PostArrowList } from "@/components/blog/PostArrowList";
-import { PostCTA } from "@/components/blog/PostCTA";
+import { getPostBySlug } from "@/lib/news/posts";
+import { PostHero } from "@/components/news/PostHero";
+import { PostBody } from "@/components/news/PostBody";
+import { PostIntro } from "@/components/news/PostIntro";
+import { PostFigure } from "@/components/news/PostFigure";
+import { PostGrid } from "@/components/news/PostGrid";
+import { PostChecklist } from "@/components/news/PostChecklist";
+import { PostQuote } from "@/components/news/PostQuote";
+import { PostArrowList } from "@/components/news/PostArrowList";
+import { PostCTA } from "@/components/news/PostCTA";
 
 const SLUG = "duck-hunting-2026";
 const SITE_URL = "https://www.outdoorexpo.co.nz";
@@ -24,7 +24,7 @@ export const metadata: Metadata = post
         title: post.title,
         description: post.excerpt,
         type: "article",
-        url: `${SITE_URL}/blog/${SLUG}`,
+        url: `${SITE_URL}/news/${SLUG}`,
         publishedTime: post.publishedAt,
         authors: [post.author],
         tags: post.tags,
@@ -73,7 +73,7 @@ export default function DuckHunting2026Post() {
     },
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `${SITE_URL}/blog/${SLUG}`,
+      "@id": `${SITE_URL}/news/${SLUG}`,
     },
     keywords: post.tags?.join(", "),
   };
@@ -131,7 +131,7 @@ export default function DuckHunting2026Post() {
         </p>
 
         <PostFigure
-          src="/blog/duck-hunting-2026/maimai-aim.jpg"
+          src="/news/duck-hunting-2026/maimai-aim.jpg"
           alt="Outdoor Expo's Marc aiming his shotgun from inside a maimai during New Zealand duck season"
           caption="Our very own Marc, keeping an eye on the morning flight."
           orientation="tall"
@@ -179,7 +179,7 @@ export default function DuckHunting2026Post() {
         />
 
         <PostFigure
-          src="/blog/duck-hunting-2026/hot-drink.jpg"
+          src="/news/duck-hunting-2026/hot-drink.jpg"
           alt="Marc making a hot drink on a cold duck hunting morning in New Zealand — warm layers and a thermos are essential"
           caption="Marc desperately looking for something warm to drink ☕"
           orientation="tall"
@@ -204,7 +204,7 @@ export default function DuckHunting2026Post() {
         />
 
         <PostFigure
-          src="/blog/duck-hunting-2026/phone-rookie.jpg"
+          src="/news/duck-hunting-2026/phone-rookie.jpg"
           alt="Hunter looking at phone in a maimai — a classic rookie moment during duck season"
           caption={"“I said PUT THAT AWAY, Dave.”"}
         />
@@ -231,7 +231,7 @@ export default function DuckHunting2026Post() {
         </PostQuote>
 
         <PostFigure
-          src="/blog/duck-hunting-2026/boat-dawn.jpg"
+          src="/news/duck-hunting-2026/boat-dawn.jpg"
           alt="Two hunters heading out across the lake in a flat-bottomed boat at dawn for a day of duck hunting in New Zealand"
           caption="Heading out across the lake. Worth every early alarm."
         />
@@ -239,12 +239,12 @@ export default function DuckHunting2026Post() {
         <PostGrid
           items={[
             {
-              src: "/blog/duck-hunting-2026/decoys-ready.jpg",
+              src: "/news/duck-hunting-2026/decoys-ready.jpg",
               alt: "Decoy ducks piled on the ground ready to be set up on the water for a New Zealand duck hunting morning",
               caption: "Decoys ready to hit the water.",
             },
             {
-              src: "/blog/duck-hunting-2026/decoys-water.jpg",
+              src: "/news/duck-hunting-2026/decoys-water.jpg",
               alt: "Decoy ducks and real mallards on a New Zealand lake with a hunter in a boat in the background",
               caption: "Decoys doing their job — real birds mixing in.",
             },

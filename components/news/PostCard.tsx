@@ -1,15 +1,16 @@
 import Link from "next/link";
-import type { BlogPostMeta } from "@/lib/blog/types";
+import type { NewsPostMeta } from "@/lib/news/types";
 import { formatPublishDate } from "./formatDate";
+import { TypeBadge } from "./TypeBadge";
 
 interface PostCardProps {
-  post: BlogPostMeta;
+  post: NewsPostMeta;
   /** When true, the card spans wider/taller — used for the featured/latest post. */
   featured?: boolean;
 }
 
 export function PostCard({ post, featured = false }: PostCardProps) {
-  const href = `/blog/${post.slug}`;
+  const href = `/news/${post.slug}`;
 
   if (featured) {
     return (
@@ -24,6 +25,10 @@ export function PostCard({ post, featured = false }: PostCardProps) {
             alt={post.heroImage.alt}
             className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
           />
+          {/* Type badge — top-left of image */}
+          <div className="absolute top-3 left-3">
+            <TypeBadge type={post.type} />
+          </div>
         </div>
         <div className="p-5 md:p-7 flex flex-col justify-center">
           <span className="text-eyebrow uppercase tracking-[0.08em] font-semibold text-orange-500 mb-2">
@@ -55,6 +60,10 @@ export function PostCard({ post, featured = false }: PostCardProps) {
           alt={post.heroImage.alt}
           className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
         />
+        {/* Type badge — top-left of image */}
+        <div className="absolute top-3 left-3">
+          <TypeBadge type={post.type} />
+        </div>
       </div>
       <div className="p-4 md:p-5">
         <span className="text-eyebrow uppercase tracking-[0.08em] font-semibold text-orange-500 mb-2 block">

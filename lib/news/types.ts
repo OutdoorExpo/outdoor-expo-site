@@ -1,16 +1,29 @@
 /**
- * Shared types for the blog system.
+ * Shared types for the news system.
  * Designed to migrate cleanly to Sanity CMS later (see Task #10).
  */
 
-export interface BlogPostMeta {
-  /** URL slug — used at /blog/[slug] */
+/**
+ * High-level content type. Drives filtering on /news index and the
+ * coloured badge shown on cards + post hero. Add new variants here
+ * (and to NEWS_TYPE_META in lib/news/posts.ts) as needs grow.
+ */
+export type NewsType =
+  | "story"
+  | "exhibitor"
+  | "competition"
+  | "announcement";
+
+export interface NewsPostMeta {
+  /** URL slug — used at /news/[slug] */
   slug: string;
   /** Headline shown on listing card + page <h1> */
   title: string;
   /** 1–2 sentence summary for cards + meta description */
   excerpt: string;
-  /** Eyebrow / category label */
+  /** Content type — controls filtering + badge colour */
+  type: NewsType;
+  /** Eyebrow / category label (specific topic, e.g. "Duck Season 2026") */
   category: string;
   /** Author display name */
   author: string;

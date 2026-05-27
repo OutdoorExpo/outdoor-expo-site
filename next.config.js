@@ -8,7 +8,19 @@ const nextConfig = {
     ],
   },
   async redirects() {
-    return [];
+    return [
+      // /blog → /news (permanent — Blog menu renamed to News)
+      {
+        source: "/blog",
+        destination: "/news",
+        permanent: true,
+      },
+      {
+        source: "/blog/:slug*",
+        destination: "/news/:slug*",
+        permanent: true,
+      },
+    ];
   },
 };
 
