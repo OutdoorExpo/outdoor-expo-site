@@ -129,7 +129,7 @@ function WhyExhibit() {
 const STATS = [
   { value: "20K+", label: "Expected Visitors" },
   { value: "300+", label: "Exhibitor Stands" },
-  { value: "13", label: "Themed Zones" },
+  { value: "12", label: "Themed Zones" },
   { value: "3", label: "Days" },
 ];
 
@@ -323,7 +323,7 @@ function Testimonial() {
 const FAQS = [
   {
     q: "When does the application close?",
-    a: "Applications stay open until 1st of September. That said, prime spots are filling quickly — especially in boating, 4×4, and food categories. Apply early if you'd like first pick on location.",
+    a: "Applications stay open until 1st of September. That said, prime spots are filling quickly — apply early if you'd like first pick on location.",
   },
   {
     q: "How much does a stand cost?",

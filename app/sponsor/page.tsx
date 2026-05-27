@@ -106,7 +106,7 @@ function Hero() {
 const STATS = [
   { value: "20K+", label: "Expected Visitors" },
   { value: "300+", label: "Exhibitors" },
-  { value: "13", label: "Themed Zones" },
+  { value: "12", label: "Themed Zones" },
   { value: "3", label: "Days" },
 ];
 
