@@ -193,7 +193,7 @@ function Tickets() {
               <TicketCTA
                 variant={t.highlight ? "primary" : "outline-charcoal"}
                 size="md"
-                location={`visit_ticket_card_${t.label.toLowerCase().replace(/\s+/g, "_")}`}
+                location={`visit_ticket_card_${t.name.toLowerCase().replace(/\s+/g, "_")}`}
                 className="w-full"
               >
                 {t.price === "Free" ? "Learn More" : "Get Tickets"}
