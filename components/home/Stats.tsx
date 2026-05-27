@@ -20,13 +20,18 @@ export function Stats() {
           With flex + gap-x, the gap between every adjacent pair is exactly
           the same regardless of item width.
         */}
-        <div className="flex flex-wrap justify-center items-start gap-x-10 md:gap-x-20 gap-y-8 mx-auto mt-6">
+        {/*
+          flex-nowrap forces all 3 stats onto a single row on mobile.
+          Smaller mobile font + tighter gap keeps "300+ 12 3" comfortably
+          inside even the narrowest phone viewport.
+        */}
+        <div className="flex flex-nowrap justify-center items-start gap-x-6 md:gap-x-20 mx-auto mt-6">
           {stats.map((s) => (
             <div
               key={s.label}
               className="flex flex-col items-center text-center"
             >
-              <div className="font-heading font-extrabold text-[48px] md:text-[72px] text-green-500 leading-none">
+              <div className="font-heading font-extrabold text-[40px] md:text-[72px] text-green-500 leading-none">
                 {s.value}
               </div>
               <div className="text-eyebrow uppercase tracking-[0.1em] font-semibold text-charcoal mt-2">
