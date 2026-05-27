@@ -61,8 +61,10 @@ export function TestimonialSlider({
         <div className="container-prose mx-auto text-center">
           <Eyebrow variant="orange">From 2025 exhibitors</Eyebrow>
 
-          {/* Quote viewport — fixed min-height to avoid layout shift between long/short quotes */}
-          <div className="mt-3 mb-4 flex items-center justify-center min-h-[220px] md:min-h-[260px]">
+          {/* Quote viewport — FIXED height so every testimonial occupies the same
+              vertical space regardless of how long the quote is. Sized to fit
+              the longest quote on both mobile (text-h3) and desktop (text-h2). */}
+          <div className="mt-3 mb-4 flex items-center justify-center h-[320px] md:h-[260px]">
             <blockquote
               key={active}
               className="font-heading text-h3 md:text-h2 font-bold text-white leading-snug animate-fade-in"

@@ -47,9 +47,9 @@ function Hero() {
         <div className="container-prose">
           <Eyebrow variant="orange">Exhibit at Outdoor Expo 2026</Eyebrow>
           <h1 className="text-h1 font-extrabold text-white mb-3 mt-2 leading-[1.1]">
-            Where Your Brand Meets{" "}
+            Where Outdoor Brands Meet{" "}
             <br className="hidden md:block" />
-            20,000+ Expected Visitors{" "}
+            Their Next Customers{" "}
             <br className="hidden md:block" />
             Face-to-Face.
           </h1>
@@ -83,7 +83,7 @@ const REASONS = [
   {
     eyebrow: "South Island only",
     title: "Be the brand they meet in person.",
-    body: "Most major outdoor events are in Auckland. Outdoor Expo is the only large-scale outdoor expo in the South Island — and your audience is here.",
+    body: "Most major outdoor events are in the North Island. Outdoor Expo is the only large-scale outdoor expo in the South Island — and your audience is here.",
   },
   {
     eyebrow: "Three days, one place",
@@ -99,9 +99,9 @@ function WhyExhibit() {
         <div className="container-prose mb-8 md:mb-10">
           <Eyebrow>Why exhibit</Eyebrow>
           <h2 className="text-h1 font-extrabold text-green-500 mb-3 mt-2">
-            Where the South Island
+            Where the South Island&apos;s
             <br />
-            outdoor industry meets.
+            outdoor market comes to life.
           </h2>
           <p className="text-body-l text-dark-grey">
             Outdoor Expo isn&apos;t a trade show. It&apos;s where Kiwi
@@ -156,7 +156,7 @@ function Stats() {
 
 /* ============== 4 · WHAT'S INCLUDED ============== */
 const INCLUDED = [
-  "Branded exhibitor profile on outdoorexpo.co.nz (200+ visits each)",
+  "Branded exhibitor profile on outdoorexpo.co.nz",
   "Three days of high-intent foot traffic in your stand",
   "Inclusion in pre-event social campaigns reaching 100K+ Kiwis",
   "Access to a hands-on event team — our exhibitor specialists personally onboard every exhibitor",
@@ -231,8 +231,8 @@ function ProspectusCTA() {
           Read the 2026 Exhibitor Prospectus.
         </h2>
         <p className="text-body-l text-white opacity-95 mb-5 max-w-prose mx-auto">
-          Stand sizes, pricing, package inclusions, marquee layout, and
-          audience demographics — all in one document.
+          Stand sizes, pricing, package inclusions, and audience
+          demographics — all in one document.
         </p>
         <Button href={PROSPECTUS_URL} variant="primary" size="lg">
           Download Prospectus (PDF)
@@ -255,7 +255,7 @@ function ApplicationForm() {
           <p className="text-body-l text-dark-grey mb-2">
             Complete the form below to express interest. This is{" "}
             <strong>not a booking commitment</strong> — our team will get in
-            touch to discuss your requirements and finalise details together.
+            touch to discuss your requirements and finalise details with you.
           </p>
           <p className="text-body text-dark-grey">
             Before applying, we recommend reviewing the{" "}
@@ -290,15 +290,6 @@ const TESTIMONIALS = [
       "We had a great show! The other exhibitors, the staff, Marc — all so amazing! Marc, you ran a great show and were SOOOO helpful and friendly! Will definitely be doing the show again in the future.",
   },
   {
-    name: "All Over Taxidermy",
-    quote:
-      "Thank you for putting together such a great event at the outdoor expo in Christchurch. It was a fantastic opportunity for us to connect with a passionate audience and showcase what All Over Taxidermy has to offer. The atmosphere was lively, the organisation was seamless — and we are already looking forward to future expos!",
-  },
-  {
-    name: "Rae Line Premium Sports Boats",
-    quote: "Got some good inquiries and a sale of a new boat.",
-  },
-  {
     name: "Voodoo Q",
     quote:
       "The quality and demographic of the people through the gate were great.",
@@ -312,6 +303,10 @@ const TESTIMONIALS = [
     name: "GCH Aviation",
     quote:
       "Great foot traffic in our site and many leads for future business.",
+  },
+  {
+    name: "Rae Line Premium Sports Boats",
+    quote: "Got some good inquiries and a sale of a new boat.",
   },
 ];
 
@@ -328,7 +323,7 @@ function Testimonial() {
 const FAQS = [
   {
     q: "When does the application close?",
-    a: "Applications stay open until we sell out, but popular categories fill quickly — especially boating, 4×4, and food. Apply early to secure your preferred location in the marquee.",
+    a: "Applications stay open until 1st of September. That said, prime spots are filling quickly — especially in boating, 4×4, and food categories. Apply early if you'd like first pick on location.",
   },
   {
     q: "How much does a stand cost?",
@@ -336,11 +331,11 @@ const FAQS = [
   },
   {
     q: "Can I see where my stand will be located?",
-    a: "Yes. Once you submit your application, our team will share the marquee layout and discuss the best location for your category, target audience, and any specific requirements (power, water, vehicle access).",
+    a: "Yes. Once you submit your application, our team will share the layout and discuss the best location for your category, target audience, and any specific requirements (power, water, vehicle access).",
   },
   {
     q: "What's included with my stand?",
-    a: "Most packages include the stand footprint, walls/dividers, basic lighting, power access, and your exhibitor profile on outdoorexpo.co.nz. Larger packages include furniture and signage. Full details in the Prospectus.",
+    a: "Most packages include the stand footprint, walls/dividers, basic lighting, and your exhibitor profile on outdoorexpo.co.nz. Need furniture, signage, or help with full stand setup? Our preferred suppliers can assist — your exhibitor team will connect you with them. Full details in the Prospectus.",
   },
   {
     q: "I'm a small or new brand — is this right for me?",
