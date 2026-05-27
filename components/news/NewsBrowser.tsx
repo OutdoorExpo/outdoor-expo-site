@@ -24,21 +24,12 @@ export function NewsBrowser({ posts }: NewsBrowserProps) {
 
   // Build the chip list dynamically — only show types that have posts.
   const chips = useMemo(() => {
-    const counts: Record<NewsType, number> = {
-      story: 0,
-      exhibitor: 0,
-      competition: 0,
-      announcement: 0,
-    };
-    posts.forEach((p) => {
-      counts[p.type] = (counts[p.type] ?? 0) + 1;
-    });
+    const present = new Set(posts.map((p) => p.type));
     return [
-      { value: "all" as FilterValue, label: "All", count: posts.length },
-      ...NEWS_TYPE_ORDER.filter((t) => counts[t] > 0).map((t) => ({
+      { value: "all" as FilterValue, label: "All" },
+      ...NEWS_TYPE_ORDER.filter((t) => present.has(t)).map((t) => ({
         value: t as FilterValue,
         label: NEWS_TYPE_META[t].label,
-        count: counts[t],
       })),
     ];
   }, [posts]);
@@ -69,20 +60,13 @@ export function NewsBrowser({ posts }: NewsBrowserProps) {
                   type="button"
                   onClick={() => setActive(c.value)}
                   aria-pressed={isActive}
-                  className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-body-s font-semibold transition-colors ${
+                  className={`inline-flex items-center px-4 py-2 rounded-full text-body-s font-semibold transition-colors ${
                     isActive
                       ? "bg-charcoal text-white"
                       : "bg-paper text-charcoal hover:bg-light-grey"
                   }`}
                 >
                   {c.label}
-                  <span
-                    className={`text-[11px] font-normal ${
-                      isActive ? "text-white/70" : "text-mid-grey"
-                    }`}
-                  >
-                    {c.count}
-                  </span>
                 </button>
               );
             })}
@@ -90,9 +74,15 @@ export function NewsBrowser({ posts }: NewsBrowserProps) {
         </div>
       </section>
 
-      {/* Featured post (only in "All" view) */}
+      {/* Featured post (only in "All" view).
+          Bottom padding only when there's NO grid section below — otherwise
+          the grid section's top padding handles the gap. */}
       {showFeatured && featured && (
-        <section className="bg-white pt-6 md:pt-10">
+        <section
+          className={`bg-white pt-6 md:pt-10 ${
+            rest.length === 0 ? "pb-12 md:pb-16" : ""
+          }`}
+        >
           <div className="container-site">
             <PostCard post={featured} featured />
           </div>
