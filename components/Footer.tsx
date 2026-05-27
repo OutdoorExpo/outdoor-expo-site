@@ -34,13 +34,22 @@ const SOCIALS = [
   },
 ];
 
-const footerColumns = [
+type FooterLink = {
+  href: string;
+  label: string;
+  /** When true, render as plain <a> instead of Next <Link> (for mailto:/external). */
+  external?: boolean;
+};
+
+const footerColumns: { title: string; links: FooterLink[] }[] = [
   {
     title: "Visit",
     links: [
       { href: "/visit", label: "Plan Your Visit" },
-      { href: "/tickets", label: "Tickets" },
-      { href: "/zones", label: "Zones" },
+      // Tickets / Zones sections live inside /visit — link to in-page anchors
+      // rather than dedicated pages (which don't exist yet).
+      { href: "/visit#tickets", label: "Tickets" },
+      { href: "/visit#whats-on", label: "Zones" },
       { href: "/visit#getting-here", label: "Getting Here" },
     ],
   },
@@ -61,11 +70,19 @@ const footerColumns = [
     ],
   },
   {
+    // Contact column reworked: the dedicated /contact and /media pages don't
+    // exist yet, so we route enquiries through the existing application forms
+    // and a direct email. Restore Get in Touch / Media Enquiries here when
+    // those pages are built.
     title: "Contact",
     links: [
-      { href: "/contact", label: "Get in Touch" },
-      { href: "/visit#faqs", label: "FAQs" },
-      { href: "/media", label: "Media Enquiries" },
+      { href: "/exhibit-with-us#apply", label: "Apply to Exhibit" },
+      { href: "/sponsor#apply", label: "Become a Sponsor" },
+      {
+        href: "mailto:info@outdoorexpo.co.nz",
+        label: "info@outdoorexpo.co.nz",
+        external: true,
+      },
     ],
   },
 ];
@@ -101,15 +118,19 @@ export function Footer() {
               <h5 className="text-eyebrow uppercase tracking-[0.1em] font-bold text-white opacity-60 mb-3">
                 {col.title}
               </h5>
-              {col.links.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="block text-body-s text-white opacity-85 hover:opacity-100 mb-2 no-underline"
-                >
-                  {link.label}
-                </Link>
-              ))}
+              {col.links.map((link) => {
+                const className =
+                  "block text-body-s text-white opacity-85 hover:opacity-100 mb-2 no-underline break-words";
+                return link.external ? (
+                  <a key={link.href} href={link.href} className={className}>
+                    {link.label}
+                  </a>
+                ) : (
+                  <Link key={link.href} href={link.href} className={className}>
+                    {link.label}
+                  </Link>
+                );
+              })}
             </div>
           ))}
         </div>
