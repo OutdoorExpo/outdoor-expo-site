@@ -5,9 +5,16 @@ import { HubSpotForm } from "../HubSpotForm";
 /**
  * Newsletter sign-up section ("Stay in the loop.")
  *
- * Submissions are handled by HubSpot Forms — the embedded form below
- * collects First Name + Last Name + Email, then a HubSpot workflow tags
- * the contact as "Newsletter Only" engagement segment.
+ * Layout — compact two-column on desktop:
+ *   ┌──────────────────────────────┬───────────────────────────────────────┐
+ *   │ Stay in the loop.            │ [First] [Last] [Email] [SUBSCRIBE]    │
+ *   │ Early-bird alerts + news.    │ By subscribing… Privacy + Terms       │
+ *   └──────────────────────────────┴───────────────────────────────────────┘
+ *
+ * Stacks to single column on mobile (form below text).
+ *
+ * Submissions handled by HubSpot Forms — a workflow tags new contacts
+ * as "Newsletter Only" engagement segment.
  *
  * Form: Website Newsletter Signup
  * portalId: 44544113 · region: ap1
@@ -20,39 +27,43 @@ const NEWSLETTER_FORM = {
 
 export function Newsletter() {
   return (
-    <section className="bg-charcoal text-white py-8 md:py-10 text-center">
+    <section className="bg-charcoal text-white py-5 md:py-6">
       <div className="container-site">
-        <div className="max-w-[820px] mx-auto">
-          <h2 className="text-h2 font-extrabold text-white mb-2">
-            Stay in the loop.
-          </h2>
-          <p className="text-body opacity-85 mb-4">
-            Early-bird ticket alerts, zone announcements, and exhibitor news —
-            direct to your inbox.
-          </p>
-
-          {/* HubSpot embedded form — minimal styling overrides below. */}
-          <div className="newsletter-form text-left">
-            <HubSpotForm
-              portalId={NEWSLETTER_FORM.portalId}
-              formId={NEWSLETTER_FORM.formId}
-              region={NEWSLETTER_FORM.region}
-            />
+        <div className="max-w-[1080px] mx-auto md:flex md:items-center md:gap-8 lg:gap-12">
+          {/* LEFT — heading + subline. On desktop, this sits to the left of the form. */}
+          <div className="md:flex-shrink-0 md:max-w-[300px] md:text-left text-center mb-2 md:mb-0">
+            <h2 className="text-h4 md:text-h3 font-extrabold text-white leading-tight">
+              Stay in the loop.
+            </h2>
+            <p className="text-body-s text-white/70 mt-0.5 leading-snug">
+              Early-bird alerts, zone news &amp; exhibitor announcements.
+            </p>
           </div>
 
-          {/* Implied-consent notice — NZ Privacy Act compliant when paired
-              with Privacy Policy + Terms pages linked below. */}
-          <p className="text-body-s text-white/55 mt-3">
-            By subscribing you agree to our{" "}
-            <a href="/privacy" className="text-white/80 underline hover:text-white">
-              Privacy Policy
-            </a>{" "}
-            and{" "}
-            <a href="/terms" className="text-white/80 underline hover:text-white">
-              Terms &amp; Conditions
-            </a>
-            .
-          </p>
+          {/* RIGHT — form + consent line stacked tight. */}
+          <div className="md:flex-1 md:min-w-0">
+            <div className="newsletter-form text-left">
+              <HubSpotForm
+                portalId={NEWSLETTER_FORM.portalId}
+                formId={NEWSLETTER_FORM.formId}
+                region={NEWSLETTER_FORM.region}
+              />
+            </div>
+
+            {/* Implied-consent notice — NZ Privacy Act compliant when paired
+                with Privacy Policy + Terms pages linked here. */}
+            <p className="text-[11px] text-white/50 mt-1.5 leading-snug md:text-left text-center">
+              By subscribing you agree to our{" "}
+              <a href="/privacy" className="text-white/75 underline hover:text-white">
+                Privacy Policy
+              </a>{" "}
+              and{" "}
+              <a href="/terms" className="text-white/75 underline hover:text-white">
+                Terms &amp; Conditions
+              </a>
+              .
+            </p>
+          </div>
         </div>
       </div>
 
@@ -76,12 +87,7 @@ export function Newsletter() {
           max-width: 100% !important;
         }
 
-        /*
-          Hide ALL labels aggressively — HubSpot has multiple label
-          rendering variants depending on form version. We hide ALL of them
-          using maximum specificity + multiple selectors + multiple
-          CSS hide techniques so at least one wins the cascade fight.
-        */
+        /* Hide ALL labels aggressively */
         section .newsletter-form label,
         section .newsletter-form form label,
         section .newsletter-form .hs-form label,
@@ -101,31 +107,49 @@ export function Newsletter() {
           left: -9999px !important;
         }
 
-        /* Compact field spacing — base (mobile stacked) */
-        .newsletter-form .hs-form-field {
-          margin: 0 0 8px 0 !important;
-        }
+        /*
+          MOBILE (stacked): zero-out HubSpot's default margins/padding on
+          every possible wrapper, then add a precise 6px gap between fields
+          using adjacent-sibling selectors. This guarantees consistent
+          tight spacing regardless of which wrapper HubSpot uses.
+        */
+        .newsletter-form .hs-form-field,
         .newsletter-form .form-columns-1,
         .newsletter-form .form-columns-2,
-        .newsletter-form .form-columns-3 {
+        .newsletter-form .form-columns-3,
+        .newsletter-form .hs-fieldtype-text,
+        .newsletter-form .hs-fieldtype-email,
+        .newsletter-form .hs-fieldtype-phonenumber,
+        .newsletter-form .input,
+        .newsletter-form .hs-input-wrapper,
+        .newsletter-form .hs-submit,
+        .newsletter-form .actions {
+          margin: 0 !important;
+          padding: 0 !important;
           max-width: 100% !important;
-          margin-bottom: 0 !important;
+        }
+        /* Add 6px gap BETWEEN adjacent items only (not before first) */
+        .newsletter-form .hs-form-field + .hs-form-field,
+        .newsletter-form .form-columns-1 + .form-columns-1,
+        .newsletter-form .form-columns-2 + .form-columns-2,
+        .newsletter-form .form-columns-3 + .form-columns-3,
+        .newsletter-form .form-columns-1 + .hs-submit,
+        .newsletter-form .form-columns-1 + .actions {
+          margin-top: 6px !important;
+        }
+        /* Gap before submit button (mobile only) */
+        .newsletter-form .hs-submit,
+        .newsletter-form .actions {
+          margin-top: 8px !important;
         }
 
-        /*
-          DESKTOP/TABLET: All 4 elements on a single horizontal row.
-          [First name] [Last name] [Email] [SUBSCRIBE]
-
-          We use display:flex on the <form> and display:contents on
-          HubSpot's column wrappers so the fields become direct flex
-          children, ignoring HubSpot's own column grouping.
-        */
+        /* DESKTOP/TABLET: all 4 elements on one horizontal row */
         @media (min-width: 768px) {
           .newsletter-form form {
             display: flex !important;
             flex-direction: row !important;
             flex-wrap: nowrap !important;
-            gap: 8px !important;
+            gap: 6px !important;
             align-items: stretch !important;
           }
           .newsletter-form .form-columns-1,
@@ -148,14 +172,16 @@ export function Newsletter() {
         /* Input styling — rounded pills, white background, dark text */
         .newsletter-form .hs-input {
           width: 100% !important;
-          height: 44px;
-          padding: 0 16px;
-          font-size: 15px;
-          color: #2c2a26;
-          background: #ffffff;
-          border: none;
-          border-radius: 9999px;
-          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+          height: 40px !important;
+          padding: 0 14px !important;
+          font-size: 14px !important;
+          color: #2c2a26 !important;
+          background: #ffffff !important;
+          border: none !important;
+          border-radius: 9999px !important;
+          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15) !important;
+          margin: 0 !important;
+          display: block !important;
         }
         .newsletter-form .hs-input:focus {
           outline: 2px solid #f97316;
@@ -167,16 +193,21 @@ export function Newsletter() {
         }
         .newsletter-form textarea.hs-input {
           height: auto;
-          padding: 10px 16px;
-          border-radius: 14px;
+          padding: 10px 14px;
+          border-radius: 12px;
         }
 
-        /* Submit button — orange pill, centered, fixed width.
-           Extra-specific selectors to beat HubSpot's brand-coloured CSS. */
+        /* Submit button — orange pill, brand colour forced over HubSpot defaults */
         .newsletter-form .hs-submit,
         .newsletter-form .actions {
-          margin-top: 10px !important;
+          margin: 6px 0 0 0 !important;
           text-align: center;
+        }
+        @media (min-width: 768px) {
+          .newsletter-form .hs-submit,
+          .newsletter-form .actions {
+            margin: 0 !important;
+          }
         }
         section .newsletter-form .hs-button,
         section .newsletter-form input.hs-button,
@@ -184,15 +215,15 @@ export function Newsletter() {
         section .newsletter-form .hs-form input.hs-button.primary {
           display: inline-block !important;
           width: auto !important;
-          min-width: 200px !important;
-          height: 44px !important;
-          padding: 0 28px !important;
+          min-width: 130px !important;
+          height: 40px !important;
+          padding: 0 22px !important;
           background-color: #f97316 !important;
           background: #f97316 !important;
           background-image: none !important;
           color: #ffffff !important;
           font-family: inherit !important;
-          font-size: 13px !important;
+          font-size: 12px !important;
           font-weight: 700 !important;
           text-transform: uppercase !important;
           letter-spacing: 0.08em !important;
@@ -212,18 +243,24 @@ export function Newsletter() {
         .newsletter-form .hs-error-msgs label,
         .newsletter-form .hs-error-msg {
           color: #fca5a5 !important;
-          font-size: 12px !important;
-          display: block !important; /* override the universal display:none above */
-          margin-top: 4px;
+          font-size: 11px !important;
+          display: block !important;
+          margin-top: 2px;
           padding-left: 4px;
+          /* override the universal hide-label position trickery for errors */
+          position: static !important;
+          left: auto !important;
+          visibility: visible !important;
+          height: auto !important;
+          width: auto !important;
         }
 
         /* Thank-you message after submit */
         .newsletter-form .submitted-message {
           color: #ffffff !important;
-          font-size: 16px;
+          font-size: 14px;
           text-align: center;
-          padding: 16px 0;
+          padding: 8px 0;
         }
       `}</style>
     </section>
