@@ -1,6 +1,11 @@
+import Link from "next/link";
 import { Eyebrow } from "@/components/Eyebrow";
 import { Newsletter } from "@/components/home/Newsletter";
 import exhibitors from "@/lib/exhibitors-2025.json";
+import {
+  CONFIRMED_2026_SLUGS,
+  CONFIRMED_2026_SET,
+} from "@/lib/exhibitors-2026-confirmed";
 
 export const metadata = {
   title: "Exhibitors",
@@ -21,40 +26,6 @@ type Exhibitor = {
 
 const data = exhibitors as Exhibitor[];
 
-/**
- * Slugs (in display order) of exhibitors already confirmed for 2026.
- * These are pulled to the top of the unified grid.
- * The rest of the 2025 line-up follows in its original order.
- * Update this list as new confirmations come in.
- */
-const CONFIRMED_2026_SLUGS: string[] = [
-  "advanced-optics",
-  "bays-boating",
-  "black-sheep-trading",
-  "the-bush-baths",
-  "canterbury-vehicle-accessories",
-  "cjm-s-events-ltd",
-  "cmg-campers",
-  "cohesive-construction",
-  "ebikeznz",
-  "falcon-overland",
-  "hybrid-bikes",
-  "kaweka-outdoor-equipment",
-  "lifestyle-builds",
-  "lysaght-ltd",
-  "manchester-unity",
-  "mountain-high-clothing",
-  "night-owl-outdoor-gear",
-  "north-to-south-first-aid-supplies",
-  "osprey-boats-new-zealand",
-  "ponies2go",
-  "sports-marine",
-  "the-shed-specialists-co",
-  "white-pointer-boats",
-];
-
-const CONFIRMED_SET = new Set(CONFIRMED_2026_SLUGS);
-
 // Build a single ordered list: 2026-confirmed first (in spec order), then the
 // rest of the 2025 line-up in its original JSON order. Visually no distinction
 // between the two groups — they share the same card style and grid.
@@ -62,7 +33,7 @@ const orderedExhibitors: Exhibitor[] = [
   ...CONFIRMED_2026_SLUGS
     .map((slug) => data.find((e) => e.slug === slug))
     .filter((e): e is Exhibitor => Boolean(e)),
-  ...data.filter((e) => !CONFIRMED_SET.has(e.slug)),
+  ...data.filter((e) => !CONFIRMED_2026_SET.has(e.slug)),
 ];
 
 export default function ExhibitorsPage() {
@@ -138,8 +109,11 @@ function Grid({ items }: { items: Exhibitor[] }) {
 
 /* ============== CARD ============== */
 function Card({ e }: { e: Exhibitor }) {
-  const primaryLink =
-    e.website || e.instagram || e.facebook || e.youtube || null;
+  // Card body (logo + name + description) links to the internal exhibitor
+  // detail page — this preserves SEO equity from Wix /product-page/[slug]
+  // URLs and keeps users on our site. The external website + social pills
+  // below still open in a new tab for users who want to jump out directly.
+  const detailHref = `/exhibitors/${e.slug}`;
   const description =
     e.description && e.description.length > 140
       ? e.description.slice(0, 137).trim() + "…"
@@ -148,12 +122,10 @@ function Card({ e }: { e: Exhibitor }) {
   return (
     <article className="flex flex-col bg-white border border-light-grey rounded p-3 hover:border-green-500 transition-colors">
       {/* Logo */}
-      <a
-        href={primaryLink ?? "#"}
-        target={primaryLink ? "_blank" : undefined}
-        rel={primaryLink ? "noopener noreferrer" : undefined}
+      <Link
+        href={detailHref}
         className="block aspect-[3/2] bg-sand rounded mb-2 flex items-center justify-center overflow-hidden p-2"
-        aria-label={`${e.name} — open website`}
+        aria-label={`${e.name} — view details`}
       >
         {e.logo ? (
           // eslint-disable-next-line @next/next/no-img-element
@@ -168,22 +140,16 @@ function Card({ e }: { e: Exhibitor }) {
             {e.name[0]}
           </span>
         )}
-      </a>
+      </Link>
 
       {/* Name */}
       <h3 className="font-heading font-bold text-charcoal text-body-l mb-1 leading-tight">
-        {primaryLink ? (
-          <a
-            href={primaryLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-green-500 no-underline"
-          >
-            {e.name}
-          </a>
-        ) : (
-          e.name
-        )}
+        <Link
+          href={detailHref}
+          className="hover:text-green-500 no-underline"
+        >
+          {e.name}
+        </Link>
       </h3>
 
       {/* Description */}

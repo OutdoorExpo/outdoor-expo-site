@@ -4,6 +4,11 @@ import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { BackToTop } from "@/components/BackToTop";
+import {
+  OrganizationSchema,
+  EventSchema,
+  WebSiteSchema,
+} from "@/components/StructuredData";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -70,6 +75,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en-NZ" className={`${inter.variable} ${sora.variable}`}>
+      <head>
+        {/* Site-wide JSON-LD structured data */}
+        <OrganizationSchema />
+        <WebSiteSchema />
+        <EventSchema />
+      </head>
       <body>
         <Header />
         <main>{children}</main>
