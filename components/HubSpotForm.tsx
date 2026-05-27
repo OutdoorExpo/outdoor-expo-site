@@ -76,9 +76,19 @@ export function HubSpotForm({
     firedRef.current = false;
   }, [formId]);
 
-  function safelyFire() {
-    if (firedRef.current) return;
+  function safelyFire(source: string) {
+    if (firedRef.current) {
+      // eslint-disable-next-line no-console
+      console.log(
+        `[HubSpotForm] ${source} fired AGAIN for ${formId} — deduped`
+      );
+      return;
+    }
     firedRef.current = true;
+    // eslint-disable-next-line no-console
+    console.log(
+      `[HubSpotForm] success fired via ${source} for formId=${formId}`
+    );
     onFormSubmittedRef.current?.();
   }
 
@@ -101,7 +111,7 @@ export function HubSpotForm({
             // submission. This is the most reliable channel for inline
             // embedded forms.
             onFormSubmitted: () => {
-              safelyFire();
+              safelyFire("hbspt.forms.create callback");
             },
           });
         }
@@ -130,13 +140,22 @@ export function HubSpotForm({
       const data = event.data as
         | { type?: string; eventName?: string; id?: string }
         | undefined;
+      // Diagnostic: log every hsFormCallback we see so we can spot
+      // mismatched formIds or unexpected eventNames.
+      if (data && data.type === "hsFormCallback") {
+        // eslint-disable-next-line no-console
+        console.log(
+          `[HubSpotForm] postMessage received (listening for ${formId}):`,
+          data
+        );
+      }
       if (
         data &&
         data.type === "hsFormCallback" &&
         data.eventName === "onFormSubmitted" &&
         data.id === formId
       ) {
-        safelyFire();
+        safelyFire("postMessage");
       }
     }
     window.addEventListener("message", handleMessage);

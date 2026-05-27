@@ -29,6 +29,13 @@ declare global {
 }
 
 /**
+ * Toggle to log every analytics call to the browser console. Useful for
+ * verifying conversion events fire during launch. Set to false once the
+ * Google Ads campaign is stable.
+ */
+const DEBUG = true;
+
+/**
  * Fire a GA4 custom event. Safe to call from anywhere — no-ops during SSR
  * or before gtag has loaded.
  */
@@ -37,6 +44,19 @@ export function trackEvent(
   params?: Record<string, unknown>
 ): void {
   if (typeof window === "undefined") return;
-  if (typeof window.gtag !== "function") return;
+  if (typeof window.gtag !== "function") {
+    if (DEBUG) {
+      // eslint-disable-next-line no-console
+      console.warn(
+        `[analytics] trackEvent("${name}") SKIPPED — window.gtag not loaded yet`,
+        params
+      );
+    }
+    return;
+  }
   window.gtag("event", name, params || {});
+  if (DEBUG) {
+    // eslint-disable-next-line no-console
+    console.log(`[analytics] event fired → ${name}`, params || {});
+  }
 }
