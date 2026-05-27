@@ -22,7 +22,7 @@ export function Newsletter() {
   return (
     <section className="bg-charcoal text-white py-8 md:py-10 text-center">
       <div className="container-site">
-        <div className="max-w-[520px] mx-auto">
+        <div className="max-w-[820px] mx-auto">
           <h2 className="text-h2 font-extrabold text-white mb-2">
             Stay in the loop.
           </h2>
@@ -101,14 +101,48 @@ export function Newsletter() {
           left: -9999px !important;
         }
 
-        /* Compact field spacing */
+        /* Compact field spacing — base (mobile stacked) */
         .newsletter-form .hs-form-field {
           margin: 0 0 8px 0 !important;
         }
         .newsletter-form .form-columns-1,
-        .newsletter-form .form-columns-2 {
+        .newsletter-form .form-columns-2,
+        .newsletter-form .form-columns-3 {
           max-width: 100% !important;
           margin-bottom: 0 !important;
+        }
+
+        /*
+          DESKTOP/TABLET: All 4 elements on a single horizontal row.
+          [First name] [Last name] [Email] [SUBSCRIBE]
+
+          We use display:flex on the <form> and display:contents on
+          HubSpot's column wrappers so the fields become direct flex
+          children, ignoring HubSpot's own column grouping.
+        */
+        @media (min-width: 768px) {
+          .newsletter-form form {
+            display: flex !important;
+            flex-direction: row !important;
+            flex-wrap: nowrap !important;
+            gap: 8px !important;
+            align-items: stretch !important;
+          }
+          .newsletter-form .form-columns-1,
+          .newsletter-form .form-columns-2,
+          .newsletter-form .form-columns-3 {
+            display: contents !important;
+          }
+          .newsletter-form .hs-form-field {
+            flex: 1 1 0 !important;
+            min-width: 0 !important;
+            margin: 0 !important;
+          }
+          .newsletter-form .hs-submit,
+          .newsletter-form .actions {
+            flex: 0 0 auto !important;
+            margin: 0 !important;
+          }
         }
 
         /* Input styling — rounded pills, white background, dark text */
@@ -135,24 +169,6 @@ export function Newsletter() {
           height: auto;
           padding: 10px 16px;
           border-radius: 14px;
-        }
-
-        /* Force First/Last in 2 columns on desktop, stacked on mobile */
-        .newsletter-form .hs_firstname,
-        .newsletter-form .hs_lastname {
-          display: inline-block;
-          width: calc(50% - 4px) !important;
-          vertical-align: top;
-        }
-        .newsletter-form .hs_firstname {
-          margin-right: 8px;
-        }
-        @media (max-width: 640px) {
-          .newsletter-form .hs_firstname,
-          .newsletter-form .hs_lastname {
-            width: 100% !important;
-            margin-right: 0;
-          }
         }
 
         /* Submit button — orange pill, centered, fixed width.
