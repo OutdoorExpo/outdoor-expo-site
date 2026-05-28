@@ -22,17 +22,11 @@ export function ZonesPreview() {
           </h2>
           <p className="text-body-l opacity-92 mb-5">
             From boating to bikes, 4×4 to family camping — the full 2026 zone
-            line-up is coming soon. Get a feel for the scale with last year&apos;s guide.
+            line-up is coming soon.
           </p>
           <div className="flex flex-col md:flex-row gap-2">
             <Button href="/tickets" variant="primary">
               Get Tickets
-            </Button>
-            <Button
-              href="https://44544113.fs1.hubspotusercontent-ap1.net/hubfs/44544113/Outdoor%20Expo%202025%20Visitor%20Guide.pdf"
-              variant="outline-white"
-            >
-              View 2025 Programme (PDF)
             </Button>
           </div>
         </div>

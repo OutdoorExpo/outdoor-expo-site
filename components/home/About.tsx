@@ -25,7 +25,7 @@ export function About() {
         <div className="max-w-[780px] mb-8 md:mb-10">
           <Eyebrow>About the Expo</Eyebrow>
           <h2 className="text-h1 font-extrabold text-green-500 mb-3 mt-2">
-            Everything outdoor.
+            Everything outdoor
             <br />
             Under the Canterbury sky.
           </h2>
