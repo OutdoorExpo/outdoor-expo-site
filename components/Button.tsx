@@ -66,6 +66,18 @@ export function Button({
   if (href) {
     // Auto-detect external links (http/https)
     const isExternal = external ?? /^https?:\/\//.test(href);
+    // Auto-detect protocol-handler links (mailto:, tel:). These should be
+    // plain <a> tags — Next.js's <Link> tries to treat them as internal
+    // routes and breaks. They also shouldn't open in a new tab (the OS
+    // email/phone app handles the action).
+    const isProtocol = /^(mailto|tel):/.test(href);
+    if (isProtocol) {
+      return (
+        <a href={href} className={classes}>
+          {children}
+        </a>
+      );
+    }
     if (isExternal) {
       return (
         <a

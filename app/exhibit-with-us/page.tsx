@@ -46,12 +46,13 @@ function Hero() {
       <div className="container-site relative z-10">
         <div className="container-prose">
           <Eyebrow variant="orange">Exhibit at Outdoor Expo 2026</Eyebrow>
-          <h1 className="text-h1 font-extrabold text-white mb-3 mt-2 leading-[1.1]">
-            Where Outdoor Brands Meet{" "}
-            <br className="hidden md:block" />
-            Their Next Customers{" "}
-            <br className="hidden md:block" />
-            Face-to-Face.
+          {/* Headline width capped at ~620px so it wraps to a clean 2–3
+              lines on desktop instead of splitting awkwardly at the prose
+              container's narrower width. This also leaves the right half
+              of the hero photo (where the people are standing) visible
+              instead of being covered by text. */}
+          <h1 className="text-h1 font-extrabold text-white mb-3 mt-2 leading-[1.1] max-w-[620px]">
+            Where Outdoor Brands Meet Their Next Customers Face-to-Face.
           </h1>
           <p className="text-body-l text-white opacity-95 mb-5 max-w-[560px]">
             20,000+ expected visitors. 300+ exhibitors. Three days. The South

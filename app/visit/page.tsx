@@ -221,7 +221,7 @@ const TRANSPORT = [
   {
     icon: "🚗",
     title: "By car",
-    body: "15 minutes from Cathedral Square. Exit State Highway 1 near Curletts Road. Please note: General public parking entry is via Hayton Road or Augustine Drive. (Curletts Road entry is strictly reserved for Mobility Pass holders). Free on-site parking with 3,000+ spaces — follow event signage.",
+    body: "15 minutes from Cathedral Square. Exit State Highway 1 near Curletts Road. Entrance for all visitors is via Curletts Road only — follow event signage to the entry gate. Free on-site parking with 3,000+ spaces.",
   },
   {
     icon: "🚌",
@@ -567,7 +567,7 @@ function Faqs() {
           ))}
         </div>
         <div className="text-center mt-6">
-          <Button href="/contact" variant="outline-charcoal">
+          <Button href="mailto:info@outdoorexpo.co.nz" variant="outline-charcoal">
             Contact us
           </Button>
         </div>

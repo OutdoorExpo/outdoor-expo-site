@@ -47,7 +47,7 @@ export function Hero() {
             One place.
           </h1>
           <p className="text-body-l text-white opacity-95 mb-5 max-w-[560px]">
-            Christchurch · 2–4 October 2026
+            2–4 October 2026, Christchurch
           </p>
           <TicketCTA variant="primary" size="lg" location="home_hero">
             Get Tickets
