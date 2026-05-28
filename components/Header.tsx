@@ -10,7 +10,9 @@ const navItems = [
   { href: "/exhibitors", label: "Exhibitors" },
   { href: "/exhibit-with-us", label: "Exhibit With Us" },
   { href: "/sponsor", label: "Sponsor" },
-  { href: "/ambassadors", label: "Ambassadors" },
+  // Ambassadors page hidden until content is ready — re-enable by
+  // restoring this line AND renaming app/_ambassadors → app/ambassadors.
+  // { href: "/ambassadors", label: "Ambassadors" },
   { href: "/news", label: "News" },
   { href: "/about", label: "About" },
 ];
